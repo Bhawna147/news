@@ -1,0 +1,39 @@
+.nav{
+    background-color: #08CCD9;
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+}
+
+.nav p{
+    color: white;
+    font-size: 20px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.filler{
+    flex-grow: 1;
+}
+
+.nav button{
+background: #FFFFFF;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 15px;
+cursor: pointer;
+font-size: 17px;
+padding: 0px 10px 0px 10px;
+margin-right: 10px;
+height: 30px;
+margin: 10px;
+border: none;
+}
+
+.nav p:hover{
+    color: rgb(151, 151, 151);
+
+}
+
+.nav button:hover{
+    background-color: rgb(202, 202, 202);
+}

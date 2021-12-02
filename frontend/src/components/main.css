@@ -1,0 +1,137 @@
+
+.heading{
+    margin: 30px;
+}
+
+.main{
+    margin: 0px;
+    padding: 2rem;
+    /* background-color: rgb(40, 2, 255); */
+    width: 100%;
+    }
+    
+
+.main-left{
+   /* background-color: yellow; */
+   padding: 20px;
+}
+
+
+.main-left-container {
+    /* padding: 50%; */
+     height: 50%;
+     border-radius: 10px;
+     background-position: center;
+     background-size: cover;
+     border: 20px solid #b1faff;;
+     margin-bottom: 20px;
+
+}
+
+
+
+.main-right{
+    padding: 20px;
+    /* height: 80vh; */
+    /* background-color: red; */
+    display: flex;
+    flex-wrap: wrap;
+    /* text-align: center; */
+    justify-content: space-around;
+
+    }
+
+
+
+
+    /* main news CSS */
+
+
+
+  .mainnews-news{
+
+    max-width: 98%;
+    /* overflow-x: scroll; */
+    /* margin-bottom: 8px; */
+
+  }
+
+  .mainnews-news p{
+      font-size: 9px;
+      text-align: right;
+  }
+
+    
+
+
+    /* main news */
+
+
+    .main-news-container  {
+
+        /* background: rgba(8, 204, 217, 0.13);
+        width: 22rem;
+        display: flex;
+        text-align: center;
+        padding: 2%;
+        height: 10rem;
+        border-radius: 7px;
+        padding: 5%;
+        margin: 20px; */
+
+
+
+        background: rgba(8, 204, 217, 0.13);
+        width: 21rem;
+        display: flex;
+        /* text-align: center; */
+        /* padding: 2%; */
+        /* height: 10rem; */
+        border-radius: 7px;
+        padding: 25px;
+        margin: 20px;
+
+
+    }
+
+    .mainnews-image{
+        /* width: 10rem;
+        height: 30%;
+        background-color: black;
+        filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+        background-repeat: no-repeat;
+        object-fit: cover;
+        margin: 2px;
+
+
+        background-position: center;
+        background-size: cover;
+        border: 20px solid #08CCD9;
+        margin-bottom: 20px;
+ */
+
+
+    height: 100%;
+    background-color: black;
+    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+    /* background-repeat: no-repeat; */
+    /* object-fit: cover; */
+    /* margin: 2px; */
+    background-position: center;
+    background-size: cover;
+    /* border: 20px solid #08CCD9; */
+    /* margin-bottom: 20px;
+
+
+
+
+        /* object-fit: cover;
+          width: 28rem; */
+    }
+
+
+
+
+    
+
+
