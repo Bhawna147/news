@@ -8,14 +8,19 @@ const Interviews = () => {
               <h1 className="heading">Interviews</h1>
             
               <div className="interviews">
-              <Mainnews/>
-              <Mainnews/>
-              <Mainnews/>
-              <Mainnews/>
-              <Mainnews/>
-              <Mainnews/>
-              <Mainnews/>
-              <Mainnews/>
+              <Mainnews 
+               classN = "main-news-container-horizontal" />
+                 <Mainnews 
+               classN = "main-news-container-horizontal" />
+                 <Mainnews 
+               classN = "main-news-container-horizontal" />
+                 <Mainnews 
+               classN = "main-news-container-horizontal" />
+                 <Mainnews 
+               classN = "main-news-container-horizontal" />
+                 <Mainnews 
+               classN = "main-news-container-horizontal" />
+             
               </div>
 
         </>

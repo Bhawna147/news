@@ -13,6 +13,7 @@ import News from "./components/News";
 import Interviews from "./components/Interviews";
 import Dealstreet from "./components/Dealstreet";
 import Columns from "./components/Columns";
+import Footer from "./components/Footer";
 
 
 
@@ -25,8 +26,10 @@ const App = () => {
 
     <Main/>
     <News/>
+    <Columns/>
     <Dealstreet/>
     <Interviews/>
+    <Footer/>
     
     </>
 

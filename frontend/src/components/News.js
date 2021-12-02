@@ -9,14 +9,28 @@ const News = () => {
         <h1 className="heading">News</h1>
 
         <div className="interviews">
-              <Mainnews/>
-              <Mainnews/>
-              <Mainnews/>
-              <Mainnews/>
-              <Mainnews/>
-              <Mainnews/>
-              <Mainnews/>
-              <Mainnews/>
+
+               <Mainnews 
+               classN = "main-news-container-vertical" />
+               <Mainnews 
+               classN = "main-news-container-vertical" />
+               <Mainnews 
+               classN = "main-news-container-vertical" />
+               <Mainnews 
+               classN = "main-news-container-vertical" />
+
+               <Mainnews 
+               classN = "main-news-container-vertical" />
+               <Mainnews 
+               classN = "main-news-container-vertical" />
+               <Mainnews 
+               classN = "main-news-container-vertical" />
+               <Mainnews 
+               classN = "main-news-container-vertical" />
+               
+         
+             
+           
               </div>
 
 

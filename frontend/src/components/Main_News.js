@@ -1,29 +1,33 @@
 import React from 'react'
 import { Container , Row, Col } from "react-bootstrap";
 
-const Main_News = () => {
+const Main_News = (props) => {
+    
+    console.log(props);
     return (
         <>
-<Row className="main-news-container">
 
-        <Col
+<div className= { `${props.classN} ${props.color}`}>
+{/* 
+        <div
         lg={6}
         md={6}
         sm={6}
         xs={6}
         className="mainnews"
-        >
+        > */}
 
          <div
            className="mainnews-image"
            style={{ 
            backgroundImage: `url("https://c.ndtvimg.com/2021-12/mt9avqvg_chennai-airport-_625x300_01_December_21.jpg")`,
-           }} ></div>
+           }} >
+           </div>
 
-        </Col>
+        {/* </div> */}
 
 
-        <Col lg={6} md={6} sm={6} xs={6}>
+        {/* <div lg={6} md={6} sm={6} xs={6}> */}
         
         <div className="mainnews-news">
          <p> 
@@ -33,9 +37,9 @@ const Main_News = () => {
                  
         </div>
 
-         </Col>
+         {/* </div> */}
 
-        </Row>
+        </div>
         </>
     )
 }

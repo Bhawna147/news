@@ -47,12 +47,18 @@ const Main = () => {
                 sm={12}
                 xs={12}
                 className="main-right">
-                <Mainnews/>
-                <Mainnews/>
-                <Mainnews/>
-                <Mainnews/>
-                <Mainnews/>
-                <Mainnews/>
+                  <Mainnews 
+               classN = "main-news-container-horizontal" />
+                 <Mainnews 
+               classN = "main-news-container-horizontal" />
+                 <Mainnews 
+               classN = "main-news-container-horizontal" />
+                 <Mainnews 
+               classN = "main-news-container-horizontal" />
+                 <Mainnews 
+               classN = "main-news-container-horizontal" />
+                 <Mainnews 
+               classN = "main-news-container-horizontal" />
 
                 </Col>
 

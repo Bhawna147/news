@@ -26,6 +26,8 @@
      border: 20px solid #b1faff;;
      margin-bottom: 20px;
 
+
+
 }
 
 
@@ -44,90 +46,73 @@
 
 
 
-    /* main news CSS */
+    /* //////////////////main news CSS ////////////////*/
 
+
+    .main-news-container-horizontal  {
+        
+
+        background: rgba(8, 204, 217, 0.13);
+        width: 21rem;
+        display: flex;
+        border-radius: 7px;
+        padding: 25px;
+        margin: 20px;
+         gap: 20px;
+
+         /* flex-direction: column; */
+         /* height: 21rem; */
+
+
+    }
+
+
+    .main-news-container-vertical {
+
+        background: rgba(8, 204, 217, 0.13);
+        width: 20rem;
+        display: flex;
+        border-radius: 7px;
+        padding: 25px;
+        margin: 20px;
+        gap: 20px;
+        
+         flex-direction: column; 
+         height: 21rem;
+
+
+    }
+
+    .white{
+        background-color: White;
+    }
+
+        
+
+
+    .mainnews-image{
+
+        filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+        background-position: center;
+        background-size: cover;
+        flex-basis: 50%;
+     
+        }
 
 
   .mainnews-news{
 
-    max-width: 98%;
-    /* overflow-x: scroll; */
-    /* margin-bottom: 8px; */
+    flex-basis: 50%;
 
   }
 
   .mainnews-news p{
       font-size: 9px;
       text-align: right;
+  
   }
 
-    
 
-
-    /* main news */
-
-
-    .main-news-container  {
-
-        /* background: rgba(8, 204, 217, 0.13);
-        width: 22rem;
-        display: flex;
-        text-align: center;
-        padding: 2%;
-        height: 10rem;
-        border-radius: 7px;
-        padding: 5%;
-        margin: 20px; */
-
-
-
-        background: rgba(8, 204, 217, 0.13);
-        width: 21rem;
-        display: flex;
-        /* text-align: center; */
-        /* padding: 2%; */
-        /* height: 10rem; */
-        border-radius: 7px;
-        padding: 25px;
-        margin: 20px;
-
-
-    }
-
-    .mainnews-image{
-        /* width: 10rem;
-        height: 30%;
-        background-color: black;
-        filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
-        background-repeat: no-repeat;
-        object-fit: cover;
-        margin: 2px;
-
-
-        background-position: center;
-        background-size: cover;
-        border: 20px solid #08CCD9;
-        margin-bottom: 20px;
- */
-
-
-    height: 100%;
-    background-color: black;
-    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
-    /* background-repeat: no-repeat; */
-    /* object-fit: cover; */
-    /* margin: 2px; */
-    background-position: center;
-    background-size: cover;
-    /* border: 20px solid #08CCD9; */
-    /* margin-bottom: 20px;
-
-
-
-
-        /* object-fit: cover;
-          width: 28rem; */
-    }
 
 
 
