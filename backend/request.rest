@@ -1,0 +1,18 @@
+GET http://localhost:5000/api/news/all HTTP/1.1
+###
+POST http://localhost:5000/api/news/add HTTP/1.1
+Content-Type: application/json
+{
+    "heading": "heading",
+    "thumbnail": "thumbnail",
+    "desc": "desc",
+    "video_link": "https://google.com",
+    "full_story": "jgjgljkgjhbg",
+}
+###
+POST http://localhost:5000/api/news/add HTTP/1.1
+content-type: application/json
+{
+    "name": "sample",
+    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
