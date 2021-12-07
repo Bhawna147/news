@@ -1,8 +1,18 @@
 const News = require("../models/News");
-
+const faker = require("faker");
 const addNews = async (req, res) => {
   // console.log(req.body);
-  const data = req.body;
+  // const data = req.body;
+  const data = {
+    heading:
+      faker.name.findName() +
+      faker.finance.transactionDescription() +
+      faker.commerce.department(),
+    thumbnail: faker.image.imageUrl(),
+    desc: faker.lorem.lines(),
+    video_link: faker.image.imageUrl(),
+    full_story: faker.lorem.paragraphs(),
+  };
   try {
     let restaurant = new News(data);
     await restaurant.save();
@@ -30,7 +40,9 @@ const getNews = async (req, res) => {
 
 const getAllNews = async (req, res) => {
   try {
-    const news = await News.find();
+    const news = await News.find()
+      .sort({ _id: -1 })
+      .limit(parseInt(req.params.count));
     if (news) {
       return res.json({ err: false, message: "Success", ...news });
     } else {
