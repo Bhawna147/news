@@ -1,23 +1,22 @@
 .interviews {
-    padding: 20px;
-    /* height: 80vh; */
-    /* background-color: red; */
-    display: flex;
-    flex-wrap: wrap;
-    /* text-align: center; */
-    justify-content: space-around;
+  padding: 20px;
+  /* height: 80vh; */
+  /* background-color: red; */
+  display: flex;
+  flex-wrap: wrap;
+  /* text-align: center; */
+  justify-content: space-around;
+}
+.interviews::after {
+  content: "";
+  flex: auto;
+}
+.heading {
+  margin: 30px;
+}
 
-    }
-
-
-    .heading{
-        margin: 30px;
-    }
-
-
-    .columns{
-        background-color: #DFF8FA;;
-        height: 100%;
-        padding: 20px;
-    }
-
+.columns {
+  background-color: #dff8fa;
+  height: 100%;
+  padding: 20px;
+}
