@@ -1,11 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-
-const userSchema = new Schema({
-  id: {
-    type: String,
-    required: true,
-  },
+const user = new Schema({
   name: {
     type: String,
     required: true,
@@ -16,20 +11,19 @@ const userSchema = new Schema({
     unique: true,
   },
   phone: {
-    type: Number,
+    type: String,
   },
-  address: {
-    type: Array,
-    default: [],
+  subscirbed: {
+    type: Boolean,
+  },
+  password: {
+    type: String,
+    required: true,
   },
   orders: {
     type: Array,
     default: [],
   },
-  image: {
-    type: String,
-    default: "https://img.icons8.com/color/2x/spyro.png",
-  },
 });
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("User", user);
