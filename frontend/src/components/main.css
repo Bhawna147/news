@@ -1,122 +1,138 @@
-
-.heading{
-    margin: 30px;
+/* COLOR TO BE USED FOR NEWS DESCRIPTION - rgb(73, 73, 73); */
+html {
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
 }
 
-.main{
-    margin: 0px;
-    padding: 2rem;
-    /* background-color: rgb(40, 2, 255); */
-    width: 100%;
-    }
-    
-
-.main-left{
-   /* background-color: yellow; */
-   padding: 20px;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
 }
 
-
-.main-left-container {
-    /* padding: 50%; */
-     height: 50%;
-     border-radius: 10px;
-     background-position: center;
-     background-size: cover;
-     border: 20px solid #b1faff;;
-     margin-bottom: 20px;
-
-
-
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
 }
 
+.main-heading {
+  margin-top: 30px;
+  width: fit-content;
+  padding-left: 35px;
+}
 
+.main {
+  margin: 0px;
+  padding: 2rem;
+  width: 100%;
+}
 
-.main-right{
-    padding: 20px;
-    /* height: 80vh; */
-    /* background-color: red; */
-    display: flex;
-    flex-wrap: wrap;
-    /* text-align: center; */
-    justify-content: space-around;
+.main-left {
+  padding: 20px;
+}
+.top-news {
+  margin-left: 20%;
+}
+.top-news-heading {
+  color: rgb(73, 73, 73);
+  margin-bottom: 3vh;
+  width: 40vw;
+  min-width: 500px;
+}
+.main-right-container {
+  height: 55vh;
+  width: 45vw;
+  min-width: 550px;
+  background-position: center;
+  background-size: cover;
+  border: 10px solid #b1faff;
+  border-radius: 10px;
+}
 
-    }
+/* latest news */
+.latest-news {
+  height: 550px;
+  width: 35vw;
+  border-radius: 11px;
+  background: #ffffff;
+  box-shadow: 5px 5px 10px #d9d9d9, -5px -5px 10px #ffffff;
+  margin-left: 35px;
+}
 
+.latest-news-heading {
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid rgb(73, 73, 73, 0.2);
+}
+.latest-news-item p {
+  font-size: 20px;
+}
+.latest-news-item {
+  padding: 15px;
+  color: rgb(73, 73, 73);
+  border-bottom: 1px solid rgb(73, 73, 73, 0.2);
+}
 
+.latest-news-btn {
+  background-color: white;
+  border: none;
+  outline: none;
+  display: block;
+  font-size: 20px;
+  color: #08ccd9;
+  margin: auto;
+  margin-top: 10px;
+}
+/* //////////////////main news CSS ////////////////*/
 
+.main-news-container-horizontal {
+  background: rgba(8, 204, 217, 0.13);
+  width: 21rem;
+  display: flex;
+  border-radius: 7px;
+  padding: 25px;
+  margin: 20px;
+  gap: 20px;
 
-    /* //////////////////main news CSS ////////////////*/
+  /* flex-direction: column; */
+  /* height: 21rem; */
+}
 
+.main-news-container-vertical {
+  background: rgba(8, 204, 217, 0.13);
+  width: 20rem;
+  display: flex;
+  border-radius: 7px;
+  padding: 25px;
+  margin: 20px;
+  gap: 20px;
 
-    .main-news-container-horizontal  {
-        
+  flex-direction: column;
+  height: 21rem;
+}
 
-        background: rgba(8, 204, 217, 0.13);
-        width: 21rem;
-        display: flex;
-        border-radius: 7px;
-        padding: 25px;
-        margin: 20px;
-         gap: 20px;
+.white {
+  background-color: White;
+}
 
-         /* flex-direction: column; */
-         /* height: 21rem; */
+.mainnews-image {
+  filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+  background-position: center;
+  background-size: cover;
+  flex-basis: 50%;
+}
 
+.mainnews-news {
+  flex-basis: 50%;
+}
 
-    }
-
-
-    .main-news-container-vertical {
-
-        background: rgba(8, 204, 217, 0.13);
-        width: 20rem;
-        display: flex;
-        border-radius: 7px;
-        padding: 25px;
-        margin: 20px;
-        gap: 20px;
-        
-         flex-direction: column; 
-         height: 21rem;
-
-
-    }
-
-    .white{
-        background-color: White;
-    }
-
-        
-
-
-    .mainnews-image{
-
-        filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
-        background-position: center;
-        background-size: cover;
-        flex-basis: 50%;
-     
-        }
-
-
-  .mainnews-news{
-
-    flex-basis: 50%;
-
-  }
-
-  .mainnews-news p{
-      font-size: 9px;
-      text-align: right;
-  
-  }
-
-
-
-
-
-
-    
-
-
+.mainnews-news p {
+  font-size: 9px;
+  text-align: right;
+}
