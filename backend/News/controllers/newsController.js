@@ -1,34 +1,59 @@
 const News = require("../models/News");
 const faker = require("faker");
 const addNews = async (req, res) => {
-  // console.log(req.body);
-  // const data = req.body;
-  const data = {
-    heading:
-      faker.name.findName() +
-      faker.finance.transactionDescription() +
-      faker.commerce.department(),
-    thumbnail: faker.image.imageUrl(),
-    desc: faker.lorem.lines(),
-    video_link: faker.image.imageUrl(),
-    full_story: faker.lorem.paragraphs(),
-  };
-  try {
-    let restaurant = new News(data);
-    await restaurant.save();
-    return res.json({
+  if (req.isAuthenticated() && req.user.admin) {
+    const data = {
+      heading: req.body.heading,
+      thumbnail: req.body.thumbnail,
+      desc: req.body.desc,
+      video_link: req.body.video_link,
+      full_story: req.body.full_story,
+      date: new Date(),
+      sections: req.body.sections,
+    };
+    // const sections = ["news", "column", "deal_street", "interview"];
+    // const data = {
+    //   heading: faker.name.findName(),
+    //   thumbnail: faker.image.business(),
+    //   desc: faker.lorem.paragraphs(),
+    //   video_link: faker.image.animals(),
+    //   full_story: faker.lorem.paragraphs(),
+    //   date: faker.date.past(),
+    //   sections: [sections[Math.floor(Math.random() * 4)]],
+    //   paid: Math.floor(Math.random() * 10000) % 2 === 0 ? true : false,
+    // };
+    try {
+      let restaurant = new News(data);
+      await restaurant.save();
+      return res.json({
+        err: false,
+        success: true,
+        message: "Successfully added",
+        data: restaurant,
+      });
+    } catch (err) {
+      console.log(err);
+      return res
+        .status(500)
+        .json({ err: true, success: false, message: "Something went Wrong" });
+    }
+  } else {
+    res.status(500).json({
       err: false,
-      message: "Successfully added",
-      data: restaurant,
+      success: false,
+      message: "Only Admins have this access....",
     });
-  } catch (err) {
-    console.log(err);
-    return res.status(500).json({ err: true, message: "Something went Wrong" });
   }
 };
 
-const getNews = async (req, res) => {
-  const news = await News.findOne({ id: req.params["id"] });
+const getNewsSection = async (req, res) => {
+  const news = await News.find({
+    sections: { $all: [req.params["section"]] },
+    paid:
+      req.isAuthenticated() && req.user.subscirbed
+        ? { $in: [true, false] }
+        : false,
+  });
   if (news) {
     return res.json({ err: false, message: "Success", news: news });
   } else {
@@ -40,8 +65,15 @@ const getNews = async (req, res) => {
 
 const getAllNews = async (req, res) => {
   try {
-    const news = await News.find()
-      .sort({ _id: -1 })
+    const news = await News.find({
+      paid:
+        req.isAuthenticated() && req.user.subscirbed
+          ? { $in: [true, false] }
+          : false,
+    })
+      .sort({
+        _id: -1,
+      })
       .limit(parseInt(req.params.count));
     if (news) {
       return res.json({ err: false, message: "Success", ...news });
@@ -72,7 +104,7 @@ const getAllNews = async (req, res) => {
 // };
 
 module.exports = {
-  getNews,
+  getNewsSection,
   getAllNews,
   addNews,
 };

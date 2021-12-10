@@ -22,6 +22,13 @@ const news = new Schema({
     type: String,
     required: true,
   },
+  sections: {
+    type: Array,
+  },
+  date: {
+    type: Date,
+  },
+  paid: false,
 });
 
 module.exports = mongoose.model("news", news);

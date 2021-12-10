@@ -42,6 +42,7 @@ module.exports = (passport) => {
         phone: user.phone,
         orders: user.orders,
         subscirbed: user.subscirbed,
+        admin: user.admin,
       });
     });
   });
