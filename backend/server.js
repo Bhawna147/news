@@ -11,10 +11,7 @@ dotenv.config();
 console.clear();
 
 const authRouter = require("./Auth/Routes/auth");
-// const cityRouter = require("./City/routes/city");
 const newsRouter = require("./News/routes/news");
-// const searchRouter = require("./Search/routes/search");
-// const userRouter = require("./User/routes/user");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -50,10 +47,7 @@ mongoose.connect(
   }
 );
 app.use("/api/auth", authRouter);
-// app.use("/api/city", cityRouter);
 app.use("/api/news", newsRouter);
-// app.use("/api/search", searchRouter);
-// app.use("/api/users/", userRouter);
 
 const port = process.env.PORT || 5000;
 
