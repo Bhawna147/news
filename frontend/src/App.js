@@ -38,12 +38,14 @@ const App = () => {
       // <Routes>
 
       //   <Route exact  path="/"             element = { <Main/>       }></Route>
-      //   <Route exaxct path="/signin"      element = { <Signin />    }></Route>
+      //   <Route exaxct path="/signin"       element = { <Signin />    }></Route>
       //   <Route exact  path="/signup"       element = { <Signup/>     }></Route>
       //   <Route exact  path="/news"         element = { <News/>       }></Route>
       //   <Route exact  path="/columns"      element = { <Columns/>    }></Route>
       //   <Route exact  path="/dealstreet"   element = { <Dealstreet/> }></Route>
-      //   <Route exact  path="/Interviews"   element = { <Interviews/> }></Route>
+      //   <Route exact  path="/interviews"   element = { <Interviews/> }></Route>
+      //   <Route exact  path="/footer"       element = { <Footer/> }></Route>
+ 
         
       // </Routes>
       // </Router>
