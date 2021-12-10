@@ -35,10 +35,14 @@ body {
 
 .main-left {
   padding: 20px;
+  @media screen and (max-width: 992px) {
+    display: none;
+  }
 }
 .top-news {
   margin-left: 20%;
 }
+
 .top-news-heading {
   color: rgb(73, 73, 73);
   margin-bottom: 3vh;
@@ -57,14 +61,18 @@ body {
 
 /* latest news */
 .latest-news {
-  height: 550px;
+  /* height: 550px; */
   width: 35vw;
   border-radius: 11px;
   background: #ffffff;
   box-shadow: 5px 5px 10px #d9d9d9, -5px -5px 10px #ffffff;
   margin-left: 35px;
 }
-
+@media screen and (max-width: 992px) {
+  .latest-news {
+    display: none;
+  }
+}
 .latest-news-heading {
   text-align: center;
   padding: 10px;

@@ -57,8 +57,6 @@ const Main = () => {
                 ahead of funeral
               </p>
             </div>
-
-            <button class="latest-news-btn"> View all</button>
           </div>
         </Col>
 
