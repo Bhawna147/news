@@ -1,16 +1,12 @@
 .interviews {
   padding: 20px;
-  /* height: 80vh; */
-  /* background-color: red; */
+
   display: flex;
   flex-wrap: wrap;
-  /* text-align: center; */
-  justify-content: space-around;
+
+  justify-content: space-evenly;
 }
-.interviews::after {
-  content: "";
-  flex: auto;
-}
+
 .heading {
   margin: 30px;
 }

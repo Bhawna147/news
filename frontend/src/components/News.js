@@ -16,7 +16,7 @@ const News = () => {
         <Mainnews classN="main-news-container-vertical" />
         <Mainnews classN="main-news-container-vertical" />
         <Mainnews classN="main-news-container-vertical" />
-        <Mainnews classN="main-news-container-vertical" />
+        {/* <Mainnews classN="main-news-container-vertical" /> */}
       </div>
     </div>
   );
