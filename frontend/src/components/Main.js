@@ -17,7 +17,7 @@ const Main = () => {
     " 5. Politicians, clerics, envoys pay last respects to Gen Rawat ahead of funeral",
   ];
   return (
-    <div>
+    <>
       <Nav />
 
       <h1 className="main-heading">Today's Top Stories</h1>
@@ -82,7 +82,7 @@ const Main = () => {
           </div>
         </Col>
       </Row>
-    </div>
+    </>
   );
 };
 
