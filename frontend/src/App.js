@@ -23,14 +23,16 @@ import Footer from "./components/Footer";
 const App = () => {
   return (
     <>
-
+      
+    {/* <Signin/>    */}
+    {/* <Signup/>  */}
     <Main/>
     <News/>
     <Columns/>
     <Dealstreet/>
     <Interviews/>
     <Footer/>
-    
+  
     </>
 
   
