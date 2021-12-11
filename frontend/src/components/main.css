@@ -1,9 +1,6 @@
 /* COLOR TO BE USED FOR NEWS DESCRIPTION - rgb(73, 73, 73); */
 html {
   width: 100vw;
-  height: 100vh;
-  margin: 0px;
-  padding: 0px;
   overflow-x: hidden;
 }
 
@@ -14,10 +11,7 @@ html {
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
   overflow-x: hidden;
 }
 
@@ -35,9 +29,6 @@ body {
 
 .main-left {
   padding: 20px;
-  @media screen and (max-width: 992px) {
-    display: none;
-  }
 }
 .top-news {
   margin-left: 20%;
@@ -53,6 +44,7 @@ body {
   height: 55vh;
   width: 45vw;
   min-width: 550px;
+  max-height: 400px;
   background-position: center;
   background-size: cover;
   border: 10px solid #b1faff;
@@ -72,7 +64,11 @@ body {
   .latest-news {
     display: none;
   }
+  .main-left {
+    display: none;
+  }
 }
+
 .latest-news-heading {
   text-align: center;
   padding: 10px;
@@ -97,8 +93,123 @@ body {
   margin: auto;
   margin-top: 10px;
 }
-/* //////////////////main news CSS ////////////////*/
 
+@media screen and (max-width: 1200px) {
+  .main-heading {
+    margin-top: 25px;
+    padding-left: 25px;
+    font-size: 30px;
+  }
+  .main-right-container {
+    height: 50vh;
+    width: 40vw;
+    min-width: 500px;
+    max-height: 330px;
+  }
+  .top-news-heading {
+    width: 480px;
+    font-size: 22px;
+  }
+  .top-news {
+    margin-left: 25%;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .latest-news-item p {
+    font-size: 18px;
+  }
+  .latest-news-item {
+    padding: 13px;
+  }
+  .latest-news-heading {
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .main-heading {
+    margin-top: 20px;
+    padding-left: 20px;
+    font-size: 27px;
+  }
+  .main-right-container {
+    width: 480px;
+  }
+  .top-news-heading {
+    width: 450px;
+    font-size: 20px;
+  }
+  .top-news {
+    margin-left: 23%;
+  }
+
+  .latest-news-heading {
+    font-size: 23px;
+  }
+}
+/* //////////////////main news CSS ////////////////*/
+@media screen and (max-width: 992px) {
+  .main-right-container {
+    width: 70vw;
+    height: 50vh;
+    min-width: 400px;
+    max-height: 450px;
+  }
+  .top-news {
+    width: fit-content;
+    margin: auto;
+    margin-top: 25px;
+  }
+  .top-news-heading {
+    font-size: 24px;
+    min-width: 400px;
+    width: 60vw;
+    /* margin-left: 20px; */
+  }
+}
+@media screen and (max-width: 800px) {
+  .top-news-heading {
+    font-size: 22px;
+    width: 65vw;
+  }
+  .main-right-container {
+    height: 300px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .main-right-container {
+    width: 80vw;
+  }
+  .top-news-heading {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .main-right-container {
+    min-width: 0px;
+    width: 400px;
+    height: 250px;
+  }
+  .top-news-heading {
+    font-size: 18px;
+    min-width: 350px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .main-right-container {
+    width: 330px;
+    height: 200px;
+    /* border: 0px; */
+  }
+  .top-news {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .top-news-heading {
+    font-size: 16px;
+    width: 300px;
+    min-width: 0px;
+  }
+}
 .main-news-container-horizontal {
   background: rgba(8, 204, 217, 0.13);
   width: 21rem;
