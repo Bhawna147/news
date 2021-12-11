@@ -1,4 +1,4 @@
-.interviews {
+.section-container {
   padding: 20px;
 
   display: flex;
@@ -7,7 +7,7 @@
   justify-content: space-evenly;
 }
 
-.heading {
+.section-heading {
   margin: 30px;
 }
 
