@@ -5,6 +5,7 @@ const Main_News = (props) => {
   console.log(props);
   return (
     <>
+
       <div className={`${props.classN} ${props.color}`}>
         {/* 
         <div
@@ -21,6 +22,7 @@ const Main_News = (props) => {
             backgroundImage: `url("https://c.ndtvimg.com/2021-12/mt9avqvg_chennai-airport-_625x300_01_December_21.jpg")`,
           }}
         ></div>
+        
 
         {/* </div> */}
 

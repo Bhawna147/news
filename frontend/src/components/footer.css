@@ -1,9 +1,133 @@
-.footer{
-    padding: 20px;
+
+ .footer-container {
+    margin-top: 80px;
+    padding: 100px 50px 10px 50px;
     background-color:#DFF8FA;
-    height: 40vh;
+    /* height: 40vh; */
+  }
+
+  .footer-text {
+    color: rgb(37, 37, 37);
+    margin: auto;
+    margin-top: 30px;
+    margin-left: 15%;
+
+    display: flex;
+    gap: 15%;
+  }
+
+  .footer-text p {
+    font-size: 0.9rem;
+    line-height: 3.5;
+    color: rgb(43, 43, 43);
+  }
+
+
+  .footer-contact-conatiner{
+
+    text-align: center;
+
+  }
+
+  /* .footer-contact-left {
+  vertical-align: top;
+} */
+
+.footer-contact-box{
+  
+  display: inline-block;
+  max-width: 500px;
+  text-align: left;
+  padding: 15px 35px 0px 35px;
+  background: #ffffff8c;;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  margin: 15px;
+  
 }
 
-.footer-container{
-    margin-top: 80px;
+@media screen and (max-width: 600px) 
+{
+  .footer-contact-box
+    {
+       max-width: 100%;
+    }
 }
+
+
+  .footer-copyright {
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 70px;
+
+  }
+
+
+
+
+  @media only screen and (max-width: 1100px) {
+
+  .footer-text p {
+    font-size: 0.75rem;
+    line-height: 3;
+  }
+  .footer-container {
+    padding: 100px 30px 10px 30px;
+  }
+  .footer-copyright {
+    font-size: 0.8rem;
+    margin-top: 80px;
+  }
+}
+
+
+
+
+@media only screen and (max-width: 800px) {
+
+
+    .footer-text {
+        margin-left: 8%;
+        gap: 14%;
+      }
+      .footer-container {
+        padding: 80px 10px 0 10px;
+      }
+      .footer-copyright {
+        font-size: 0.75rem;
+        margin-top: 70px;
+      }
+    }
+
+
+    @media only screen and (max-width: 750px) {
+        .footer-text {
+          font-size: 0.72rem;
+          line-height: 1.5;
+          margin-top: 40px;
+        }
+        .footer-copyright {
+          font-size: 0.7rem;
+          margin-top: 60px;
+        }
+        .footer-container {
+          padding: 60px 30px 20px 30px;
+        }
+      }
+
+
+      @media only screen and (max-width: 550px) {
+        .footer-text {
+            margin-left: 5%;
+        }
+
+      }
+
+
+      @media only screen and (max-width: 470px) {
+        .footer-text {
+            margin-left: 1%;
+            gap: 10%;
+        }
+
+      }

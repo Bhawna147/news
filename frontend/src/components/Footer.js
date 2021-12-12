@@ -2,66 +2,82 @@ import React from 'react'
 import "./footer.css"
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import {Facebook, Instagram  , Youtube } from 'react-bootstrap-icons';
+
 
 const Footer = () => {
     return (
-        <div className='footer-container'>
-              <Row className="footer">
-                  
-                  <Col>
-                  Logo
-                  </Col>
-                  <Col>
-                  News <br/><br/>
-                  <p>
-                      Laws <br/><br/>
-                      Corporate <br/><br/>
-                      Lorem<br/><br/>
-                      In-house               
-                  </p>
-                  </Col>
+
+        <div className="footer-container">
+
+            <Col>
+  
+          {/* <Row>
+              <div className='footer-text'>
+                  <p>News</p>
+                  <p>Columns</p>
+                  <p>Dealstreet</p>
+                  <p>Interviews</p>
+              </div>
+
+          </Row> */}
 
 
-                  <Col>
-                  Columns<br/><br/>
+          <Row> 
+              <div className='footer-contact-container'>
 
-                  <p>
-                      Laws <br/><br/>
-                      Corporate <br/><br/>
-                      Lorem<br/><br/>
-                      In-house           
-                  </p>
+              <div className='footer-contact-box'>
+                  <p>Follow &nbsp; &nbsp;
+                      | &nbsp; &nbsp;
+                  <Facebook/>  &nbsp; &nbsp;&nbsp; 
+                  <Instagram/>&nbsp; &nbsp;&nbsp; 
+                  <Youtube/>  &nbsp; 
+                   </p>   
+              </div>
 
-                  </Col>
+   
 
-                  <Col>
-                  Dealstreet<br/><br/>
-
-                  <p>
-                      Laws <br/><br/>
-                      Corporate <br/><br/>
-                      Lorem<br/><br/>
-                      In-house               
-                  </p>
+              <div className='footer-contact-box'>
 
 
-                  </Col>
+              <p>Send Us A Message &nbsp; &nbsp; 
+                   |  &nbsp; &nbsp; 
+                abc@gmail.com  </p>
 
-                  <Col>
-                  Interviews <br/><br/>
+              </div>
 
-                  <p>
-                      Laws <br/><br/>
-                      Corporate <br/><br/>
-                      Lorem<br/><br/>
-                      In-house               
-                  </p>
+              <div className='footer-contact-box'>
+                
 
-                  </Col>
-                 
-              </Row>
+              <p>
+                     Call Us  &nbsp; &nbsp; 
+                     |  &nbsp; &nbsp; 
+        
+                     1234567890 </p>
 
-        </div>
+
+     
+              </div>
+              </div>
+          </Row>
+
+          <hr />
+          <Row>
+              <div className='footer-text'>
+                  <p>TermsofUse</p>
+                  <p>PrivacyPolicy</p>
+                  <p>Licence</p>
+                  <p>Newsletter</p>
+              </div>
+          </Row>
+
+
+          </Col>
+      
+        <div className="footer-copyright">Ⓒ &nbsp; &nbsp;NewsNation</div>
+      </div>
+
+
     )
 }
 

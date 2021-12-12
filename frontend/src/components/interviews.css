@@ -16,3 +16,12 @@
   height: 100%;
   padding: 20px;
 }
+
+
+
+@media screen and (max-width: 450px) {
+
+  .columns{
+    padding: 0;
+  }
+  }
