@@ -5,9 +5,9 @@ import "./interviews.css"
 const Dealstreet = () => {
     return (
         <div>
-            <h1 className="heading">DealStreet</h1>
+            <h1 className="section-heading">DealStreet</h1>
        
-            <div className="interviews">
+            <div className="section-container">
             <Mainnews 
                classN = "main-news-container-horizontal" />
                  <Mainnews 

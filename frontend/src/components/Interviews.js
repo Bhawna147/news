@@ -5,9 +5,9 @@ import "./interviews.css";
 const Interviews = () => {
   return (
     <>
-      <h1 className="heading">Interviews</h1>
+      <h1 className="section-heading">Interviews</h1>
 
-      <div className="interviews">
+      <div className="section-container">
         <Mainnews classN="main-news-container-horizontal" />
         <Mainnews classN="main-news-container-horizontal" />
         <Mainnews classN="main-news-container-horizontal" />

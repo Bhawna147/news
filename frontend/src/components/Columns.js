@@ -17,7 +17,7 @@ const Columns = () => {
 
     return (
         <>
-            <h1 className="heading">Columns</h1>
+            <h1 className="section-heading">Columns</h1>
 
             <div className="columns">
                 <Carousel breakPoints={breakPoints}>
