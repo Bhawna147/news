@@ -20,7 +20,6 @@ function Nav() {
             style={{ color: "white", padding: 0 }}
           >
             Academy Hub
-            <i className="fa fa-code"></i>
           </NavLink>
 
           <ul
@@ -77,12 +76,11 @@ function Nav() {
               </NavLink>
             </li>
 
-            <li >
-             <button className="nav-button nav-button-active" >Sign In</button>
-             </li>
-             <li>
-             <button className="nav-button nav-button-active">Sign Up</button>
-
+            <li>
+              <button className="nav-button nav-button-active">Sign In</button>
+            </li>
+            <li>
+              <button className="nav-button nav-button-active">Sign Up</button>
             </li>
           </ul>
 
@@ -98,4 +96,3 @@ function Nav() {
   );
 }
 export default Nav;
-
