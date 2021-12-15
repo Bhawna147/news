@@ -9,7 +9,7 @@ import Link from "@material-ui/core/Link";
 import Paper from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import axios from "axios";
@@ -38,12 +38,11 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Signin() {
-
   document.title = "SignIn";
 
   const [userName, setUserName] = React.useState("");
   const [password, setPassword] = React.useState("");
-//   const History = useHistory();
+  //   const History = useHistory();
   const HandleSubmit = (event) => {
     axios
       .post(`${process.env.REACT_APP_SERVER_ADDRESS}/login`, {
@@ -60,7 +59,7 @@ export default function Signin() {
         } else {
           setUserName("");
           setPassword("");
-        //   createNotification(res.data.err, "error", 3000);
+          //   createNotification(res.data.err, "error", 3000);
         }
       })
       .catch((err) => {
@@ -70,17 +69,16 @@ export default function Signin() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Grid container component="main" sx={{ height: "100vh" }}     >
-        <CssBaseline />
+      <Grid container component="main">
+        {/* <CssBaseline /> */}
         <Grid
           item
           xs={12}
           sm={8}
           md={5}
           component={Paper}
-          elevation={6}
-          square
-          style={{ margin: " 12% auto" }}
+          elevation={2}
+          style={{ margin: " 5% auto 5% auto" }}
         >
           <Box
             sx={{
@@ -91,10 +89,8 @@ export default function Signin() {
               alignItems: "center",
             }}
           >
-            <Avatar
-            style={{ background: "#08CCD9" , margin:10}}
-            >
-              <LockOutlinedIcon/>
+            <Avatar style={{ background: "#08CCD9", margin: 10 }}>
+              <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
               Sign in
@@ -128,17 +124,18 @@ export default function Signin() {
                 }}
                 value={password}
               />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-                style={{ marginBottom:20}}
-              />
+
               <Button
                 fullWidth
                 variant="contained"
                 onClick={HandleSubmit}
                 id="signin-btn"
-                style={{ background: "#08CCD9" , marginBottom:10 }}
+                style={{
+                  background: "#08CCD9",
+                  display: "block",
+                  margin: "30px auto 30px auto",
+                  width: "50%",
+                }}
               >
                 Sign In
               </Button>
@@ -155,8 +152,7 @@ export default function Signin() {
                   </Link>
                 </Grid>
               </Grid>
-              <Copyright 
-              style={{ marginTop:30 }} />
+              {/* <Copyright style={{ marginTop: 30 }} /> */}
             </Box>
           </Box>
         </Grid>
