@@ -19,7 +19,7 @@ function Nav() {
             className="nav-logo"
             style={{ color: "white", padding: 0 }}
           >
-            NewsNation
+            Academy Hub
             <i className="fa fa-code"></i>
           </NavLink>
 
@@ -76,6 +76,14 @@ function Nav() {
                 Interviews
               </NavLink>
             </li>
+
+            <li >
+             <button className="nav-button nav-button-active" >Sign In</button>
+             </li>
+             <li>
+             <button className="nav-button nav-button-active">Sign Up</button>
+
+            </li>
           </ul>
 
           <div className="nav-icon" onClick={handleClick}>
@@ -91,5 +99,3 @@ function Nav() {
 }
 export default Nav;
 
-//                 <button>SignIn</button>
-//                 <button>SignIn</button>

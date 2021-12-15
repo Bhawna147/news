@@ -19,8 +19,13 @@ const Main = () => {
   return (
     <>
       <Nav />
-
+      
+      <div className="top-heading">
       <h1 className="main-heading">Today's Top Stories</h1>
+      <div className="top-heading-filler"></div>
+      <button>Sign In</button>
+      <button>Sign Up</button>
+      </div>
 
       <Row className="main">
         <Col

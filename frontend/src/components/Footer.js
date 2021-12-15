@@ -74,7 +74,7 @@ const Footer = () => {
 
           </Col>
       
-        <div className="footer-copyright">Ⓒ &nbsp; &nbsp;NewsNation</div>
+        <div className="footer-copyright">Ⓒ &nbsp; &nbsp;Academy Hub</div>
       </div>
 
 
