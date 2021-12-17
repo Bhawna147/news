@@ -76,12 +76,40 @@ function Nav() {
               </NavLink>
             </li>
 
+            {/* <li className="nav-item nav-button-active" >
+              <NavLink
+                exact
+                to="/interviews"
+                activeClassName="active"
+                className="nav-links"
+                onClick={click ? handleClick : null}
+                style={{ color: "white" }}
+              >
+                Sign In
+              </NavLink>
+            </li>
+
+            <li className="nav-item nav-button-active" >
+              <NavLink
+                exact
+                to="/interviews"
+                activeClassName="active"
+                className="nav-links"
+                onClick={click ? handleClick : null}
+                style={{ color: "white" }}
+              >
+                Sign Up
+              </NavLink>
+            </li> */}
+
+
             <li>
               <button className="nav-button nav-button-active">Sign In</button>
             </li>
             <li>
               <button className="nav-button nav-button-active">Sign Up</button>
             </li>
+
           </ul>
 
           <div className="nav-icon" onClick={handleClick}>
