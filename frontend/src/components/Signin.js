@@ -1,27 +1,25 @@
 import * as React from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
-import HomeIcon from "@mui/icons-material/Home";
 import Link from "@material-ui/core/Link";
 import Paper from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
+import HomeIcon from "@mui/icons-material/Home";
 import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+
 // import { createNotification } from "../Notification";
 import "./sign.css";
-
 
 axios.defaults.withCredentials = true;
 
 function Copyright(props) {
+
   return (
     <Typography
       variant="body2"
@@ -42,6 +40,7 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Signin() {
+    const navigate = useNavigate();
   document.title = "SignIn";
 
   const [userName, setUserName] = React.useState("");
@@ -72,21 +71,17 @@ export default function Signin() {
   };
 
   return (
-
     <ThemeProvider theme={theme}>
-
-
-
       <Grid container component="main">
         {/* <CssBaseline /> */}
 
-        <div className="home-button-box" >
-        <button className="home-button">
-        <HomeIcon className="home-icon" style={{ fontSize: 20 }} />{" "}
-        <span>Home</span>
-        </button>
+        <div className="home-button-box">
+          <button className="home-button" onClick={() => navigate("/")}>
+            <HomeIcon className="home-icon" style={{ fontSize: 20 }} />{" "}
+            <span>Home</span>
+          </button>
         </div>
-        
+
         <Grid
           item
           xs={12}
@@ -161,7 +156,7 @@ export default function Signin() {
                     variant="body2"
                     style={{ cursor: "pointer" }}
                     onClick={() => {
-                      History.push("/signup");
+                      navigate("/signup");
                     }}
                   >
                     {"Don't have an account? Sign Up"}

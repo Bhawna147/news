@@ -3,8 +3,8 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
+// import FormControlLabel from "@mui/material/FormControlLabel";
+// import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import HomeIcon from "@mui/icons-material/Home";
@@ -12,18 +12,19 @@ import Box from "@mui/material/Box";
 import Paper from "@material-ui/core/Paper";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
+// import Container from "@mui/material/Container";
 // import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import Axios from "axios";
-import { useHistory } from "react-router";
 import "./sign.css";
+import { useNavigate } from "react-router-dom";
 
 Axios.defaults.withCredentials = true;
 
 function Copyright(props) {
+  const navigate = useNavigate();
   return (
     <Typography
       variant="body2"
@@ -44,16 +45,13 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Signup() {
+  const navigate = useNavigate();
   document.title = "SignUp";
 
   const [gender, setGender] = React.useState("Male");
-  const [profession, setProfession] = React.useState("Student");
   //   const History = useHistory();
   const genderChangeHandler = (event) => {
     setGender(event.target.value);
-  };
-  const professionChangeHandler = (event) => {
-    setProfession(event.target.value);
   };
 
   const handleSubmit = (event) => {
@@ -63,17 +61,15 @@ export default function Signup() {
 
     const data = {
       name: formData.get("name"),
-      username: formData.get("username"),
       gender: formData.get("gender"),
       country: formData.get("country"),
       state: formData.get("state"),
       city: formData.get("city"),
-      profession: formData.get("profession"),
-      institute: formData.get("institute"),
       email: formData.get("email"),
+      phone: formData.get("phone"),
       password: formData.get("password"),
     };
-    Axios.post(`${process.env.REACT_APP_SERVER_ADDRESS}/signup`, {
+    Axios.post(`${process.env.REACT_APP_SERVER_ADDRESS}/api/auth/register`, {
       data: { ...data },
     })
       .then((res) => {
@@ -92,17 +88,14 @@ export default function Signup() {
 
   return (
     <ThemeProvider theme={theme}>
-
-
-
       <Grid container component="main">
         <CssBaseline />
 
-        <div className="home-button-box" >
-        <button className="home-button">
-        <HomeIcon className="home-icon" style={{ fontSize: 20 }} />{" "}
-        <span>Home</span>
-        </button>
+        <div className="home-button-box">
+          <button className="home-button" onClick={() => navigate("/")}>
+            <HomeIcon className="home-icon" style={{ fontSize: 20 }} />{" "}
+            <span>Home</span>
+          </button>
         </div>
 
         <Grid
@@ -114,9 +107,6 @@ export default function Signup() {
           elevation={2}
           style={{ margin: "5% auto 50px auto" }}
         >
-
-
-
           <Box
             sx={{
               mx: 8,
@@ -207,7 +197,17 @@ export default function Signup() {
                     autoComplete="email"
                   />
                 </Grid>
-
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    name="phone"
+                    label="Phone Number"
+                    type="phone"
+                    id="phone"
+        
+                  />
+                </Grid>
                 <Grid item xs={12}>
                   <TextField
                     required
@@ -241,7 +241,7 @@ export default function Signup() {
                     variant="body2"
                     style={{ cursor: "pointer" }}
                     onClick={() => {
-                      History.push("/login");
+                      navigate("/signin");
                     }}
                   >
                     Already have an account? Sign in

@@ -1,14 +1,12 @@
 import React from "react";
 import Nav from "./Nav";
-// import
-// import { Container , Row, Col } from "react-bootstrap";
-// import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { useNavigate } from "react-router-dom";
 import "./main.css";
-// import Mainnews from "./Main_News";
 
 const Main = () => {
+  const navigate = useNavigate();
   const arr = [
     " 1. Politicians, clerics, envoys pay last respects to Gen Rawat ahead of funeral",
     " 2. Politicians, clerics, envoys pay last respects to Gen Rawat ahead of funeral",
@@ -19,12 +17,12 @@ const Main = () => {
   return (
     <>
       <Nav />
-      
+
       <div className="top-heading">
-      <h1 className="main-heading">Today's Top Stories</h1>
-      <div className="top-heading-filler"></div>
-      <button>Sign In</button>
-      <button>Sign Up</button>
+        <h1 className="main-heading">Today's Top Stories</h1>
+        <div className="top-heading-filler"></div>
+        <button onClick={() => navigate("/signin")}>Sign In</button>
+        <button onClick={() => navigate("/signup" )}>Sign Up</button>
       </div>
 
       <Row className="main">
