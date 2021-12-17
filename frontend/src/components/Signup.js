@@ -7,6 +7,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
+import HomeIcon from "@mui/icons-material/Home";
 import Box from "@mui/material/Box";
 import Paper from "@material-ui/core/Paper";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -18,6 +19,8 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import Axios from "axios";
 import { useHistory } from "react-router";
+import "./sign.css";
+
 Axios.defaults.withCredentials = true;
 
 function Copyright(props) {
@@ -89,8 +92,18 @@ export default function Signup() {
 
   return (
     <ThemeProvider theme={theme}>
+
+
+
       <Grid container component="main">
         <CssBaseline />
+
+        <div className="home-button-box" >
+        <button className="home-button">
+        <HomeIcon className="home-icon" style={{ fontSize: 20 }} />{" "}
+        <span>Home</span>
+        </button>
+        </div>
 
         <Grid
           item
@@ -101,6 +114,9 @@ export default function Signup() {
           elevation={2}
           style={{ margin: "5% auto 50px auto" }}
         >
+
+
+
           <Box
             sx={{
               mx: 8,

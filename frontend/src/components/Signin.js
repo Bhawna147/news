@@ -5,6 +5,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
+import HomeIcon from "@mui/icons-material/Home";
 import Link from "@material-ui/core/Link";
 import Paper from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
@@ -15,6 +16,9 @@ import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 // import { createNotification } from "../Notification";
+import "./sign.css";
+
+
 axios.defaults.withCredentials = true;
 
 function Copyright(props) {
@@ -68,9 +72,21 @@ export default function Signin() {
   };
 
   return (
+
     <ThemeProvider theme={theme}>
+
+
+
       <Grid container component="main">
         {/* <CssBaseline /> */}
+
+        <div className="home-button-box" >
+        <button className="home-button">
+        <HomeIcon className="home-icon" style={{ fontSize: 20 }} />{" "}
+        <span>Home</span>
+        </button>
+        </div>
+        
         <Grid
           item
           xs={12}
