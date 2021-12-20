@@ -76,7 +76,7 @@ function Nav() {
               </NavLink>
             </li>
 
-            {/* <li className="nav-item nav-button-active" >
+            <li className="nav-item nav-button-active" >
               <NavLink
                 exact
                 to="/interviews"
@@ -100,15 +100,15 @@ function Nav() {
               >
                 Sign Up
               </NavLink>
-            </li> */}
+            </li>
 
 
-            <li>
+            {/* <li>
               <button className="nav-button nav-button-active">Sign In</button>
             </li>
             <li>
               <button className="nav-button nav-button-active">Sign Up</button>
-            </li>
+            </li> */}
 
           </ul>
 

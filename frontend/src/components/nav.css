@@ -93,7 +93,7 @@
 .nav-item {
   line-height: 20px;
   margin-right: 3rem;
-  /* margin: 0 3rem 0 3rem; */
+  /* margin: 0 14rem 0 14rem; */
   /* margin-bottom: 2rem; */
   /* background-color: yellow; */
 }
@@ -132,6 +132,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    /* background-color: red; */
     border-top: 1pxsolid #fff;
     position: absolute;
     top: 80px;
@@ -153,6 +154,7 @@
     border: none;
   }
   .nav-links {
+    /* background-color: black; */
     padding: 1.5rem;
     width: 100%;
     display: table;
@@ -167,10 +169,13 @@
     font-size: 1.8rem;
     cursor: pointer;
     color: black;
+    
   }
 
   .nav-item {
     line-height: 40px;
+    margin: 0 20% 0 10%;
+    /* background-color: red; */
     /* margin-right: 3rem; */
     /* margin: 0 3rem 0 3rem; */
     /* margin-bottom: 2rem; */
@@ -181,6 +186,11 @@
 
 
 @media screen and (max-width: 650px) {
+
+  /* .nav-item {
+    margin: 0 10% 0 0;
+  } */
+
 
 .nav-button-active{
   display: inline;
