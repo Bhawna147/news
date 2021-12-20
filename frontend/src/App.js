@@ -10,6 +10,7 @@ import Interviews from "./components/Interviews";
 import Dealstreet from "./components/Dealstreet";
 import Columns from "./components/Columns";
 import Footer from "./components/Footer";
+import Profile from "./components/Profile";
 import Home from "./Home";
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
         <Route exact path="/" element={<Home />}></Route>
         <Route exaxct path="/signin" element={<Signin />}></Route>
         <Route exact path="/signup" element={<Signup />}></Route>
+        <Route exact path="/profile" element={<Profile />}></Route>
         <Route exact path="/news" element={<News />}></Route>
         <Route exact path="/columns" element={<Columns />}></Route>
         <Route exact path="/dealstreet" element={<Dealstreet />}></Route>
