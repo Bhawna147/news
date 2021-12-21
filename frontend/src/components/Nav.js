@@ -26,7 +26,9 @@ function Nav() {
             className="nav-logo"
             style={{ color: "white", padding: 0 }}
           >
-            Academy Hub
+            
+            <div className="nav-logo-main"></div>
+            {/* <img src="./" alt="Academy Hub" /> */}
           </Link>
 
           <ul

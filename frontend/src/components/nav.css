@@ -7,6 +7,15 @@
   margin-top: 10%;
 }
 
+.nav-logo-main {
+background-image: url("./Logo2.png");
+height: 66px;
+width: 230px;
+/* border: 2px solid white; */
+background-position: center;
+background-size: cover;
+}
+
 .navbar {
   /* background-color: #1f5156; */
   background-color: #08ccd9;
