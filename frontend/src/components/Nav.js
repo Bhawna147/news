@@ -1,6 +1,13 @@
 import { NavLink } from "react-bootstrap";
 import React from "react";
 import "./nav.css";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useHistory,
+} from "react-router-dom";
 
 function Nav() {
   const [click, setClick] = React.useState(false);
@@ -27,7 +34,7 @@ function Nav() {
             style={{ marginBottom: 0 }}
           >
             <li className="nav-item">
-              <NavLink
+              <Link  
                 exact
                 to="/news"
                 activeClassName="active"
@@ -36,11 +43,12 @@ function Nav() {
                 style={{ color: "white" }}
               >
                 News
-              </NavLink>
+              </Link>
             </li>
 
             <li className="nav-item">
-              <NavLink
+           
+              <Link
                 exact
                 to="/columns"
                 activeClassName="active"
@@ -49,10 +57,12 @@ function Nav() {
                 style={{ color: "white" }}
               >
                 Columns
-              </NavLink>
+              </Link>
+
+              {/* <a href="#Nav-column">column new</a> */}
             </li>
             <li className="nav-item">
-              <NavLink
+              <Link
                 exact
                 to="/dealstreet"
                 activeClassName="active"
@@ -61,10 +71,10 @@ function Nav() {
                 style={{ color: "white" }}
               >
                 Dealstreet
-              </NavLink>
+              </Link>
             </li>
             <li className="nav-item">
-              <NavLink
+              <Link
                 exact
                 to="/interviews"
                 activeClassName="active"
@@ -73,33 +83,33 @@ function Nav() {
                 style={{ color: "white" }}
               >
                 Interviews
-              </NavLink>
+              </Link>
             </li>
 
             <li className="nav-item nav-button-active" >
-              <NavLink
+              <Link
                 exact
-                to="/interviews"
+                to="/signin"
                 activeClassName="active"
                 className="nav-links"
                 onClick={click ? handleClick : null}
                 style={{ color: "white" }}
               >
                 Sign In
-              </NavLink>
+              </Link>
             </li>
 
             <li className="nav-item nav-button-active" >
-              <NavLink
+              <Link
                 exact
-                to="/interviews"
+                to="/signup"
                 activeClassName="active"
                 className="nav-links"
                 onClick={click ? handleClick : null}
                 style={{ color: "white" }}
               >
                 Sign Up
-              </NavLink>
+              </Link>
             </li>
 
 

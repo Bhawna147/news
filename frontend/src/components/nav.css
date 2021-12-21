@@ -91,7 +91,7 @@
 }
 
 .nav-item {
-  line-height: 20px;
+  line-height: 40px;
   margin-right: 3rem;
   /* margin: 0 14rem 0 14rem; */
   /* margin-bottom: 2rem; */
@@ -173,7 +173,7 @@
   }
 
   .nav-item {
-    line-height: 40px;
+    line-height: 20px;
     margin: 0 20% 0 10%;
     /* background-color: red; */
     /* margin-right: 3rem; */
