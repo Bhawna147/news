@@ -92,14 +92,7 @@ body {
   box-shadow: 5px 5px 10px #d9d9d9, -5px -5px 10px #ffffff;
   margin-left: 35px;
 }
-@media screen and (max-width: 992px) {
-  .latest-news {
-    display: none;
-  }
-  .main-left {
-    display: none;
-  }
-}
+
 
 .latest-news-heading {
   text-align: center;
@@ -126,11 +119,12 @@ body {
   margin-top: 10px;
 }
 
-@media screen and (max-width: 650px) {
-  .top-heading button {
-    display: none;
-  }
-}
+
+
+
+
+
+
 @media screen and (max-width: 1200px) {
   .main-heading {
     margin-top: 25px;
@@ -150,8 +144,7 @@ body {
   .top-news {
     margin-left: 25%;
   }
-}
-@media screen and (max-width: 1200px) {
+
   .latest-news-item p {
     font-size: 14px;
   }
@@ -161,7 +154,16 @@ body {
   .latest-news-heading {
     font-size: 25px;
   }
+
+  .top-heading button {
+    padding: 0px 5px 0px 5px;
+    width: 95px;
+    height: 40px;
+  }
+
 }
+
+
 @media screen and (max-width: 1100px) {
   .main-heading {
     margin-top: 20px;
@@ -182,7 +184,53 @@ body {
   .latest-news-heading {
     font-size: 23px;
   }
+
+
 }
+
+@media screen and (max-width: 1000px) {
+  .top-heading button {
+    width: 90px;
+  }
+
+}
+
+
+@media screen and (max-width: 992px) {
+  .latest-news {
+    display: none;
+  }
+  .main-left {
+    display: none;
+  }
+  .top-heading button { 
+     font-size: 18px;
+}
+
+.top-heading button { 
+  height: 35px;
+}
+
+}
+
+@media screen and (max-width: 700px) {
+
+.top-heading button { 
+  font-size: 17px;
+  width: 85px;
+}
+}
+
+@media screen and (max-width: 650px) {
+  .top-heading button {
+    display: none;
+  }
+}
+
+
+
+
+
 /* //////////////////main news CSS ////////////////*/
 @media screen and (max-width: 992px) {
   .main-right-container {
@@ -202,6 +250,7 @@ body {
     width: 60vw;
     /* margin-left: 20px; */
   }
+
 }
 @media screen and (max-width: 800px) {
   .top-news-heading {
@@ -211,6 +260,7 @@ body {
   .main-right-container {
     height: 300px;
   }
+
 }
 @media screen and (max-width: 700px) {
   .main-right-container {
@@ -219,6 +269,8 @@ body {
   .top-news-heading {
     font-size: 17px;
   }
+
+
 }
 @media screen and (max-width: 550px) {
   .main-right-container {
