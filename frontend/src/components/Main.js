@@ -11,10 +11,35 @@ function truncate(str) {
 const Main = () => {
   const navigate = useNavigate();
   const [latest, setLatest] = useState([]);
+  const [loggedIn, setLoggedIn] = useState(false);
+
   useEffect(() => {
+    Axios.get(`${process.env.REACT_APP_SERVER_ADDRESS}/api/auth/isAuth`, {})
+      .then((res) => {
+        sessionStorage.setItem("LoggedIn", res.data.isAuth);
+        setLoggedIn(res.data.isAuth);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     Latestnews();
   }, []);
 
+  const isAuth = () => {
+    if (sessionStorage.getItem("LoggedIn") === "true") {
+      setLoggedIn(true);
+      return true;
+    } else {
+      setLoggedIn(false);
+      return false;
+    }
+  };
+  // const buttonChange = () => {
+  //   if (loggedIn) {
+  //     const log = document.querySelector(".sign-button");
+  //     log.classList.add("invisible");
+  //   }
+  // };
   const Latestnews = async () => {
     await Axios.get(
       `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/all/8`
@@ -31,8 +56,26 @@ const Main = () => {
       <div className="top-heading">
         <h1 className="main-heading">Today's Top Stories</h1>
         <div className="top-heading-filler"></div>
-        <button onClick={() => navigate("/signin")}>Sign In</button>
-        <button onClick={() => navigate("/signup")}>Sign Up</button>
+        {loggedIn == false ? (
+          <div>
+            <button className="sign-button" onClick={() => navigate("/signin")}>
+              Sign In
+            </button>
+            <button
+              className="signup-button"
+              onClick={() => navigate("/signup")}
+            >
+              Sign Up
+            </button>
+          </div>
+        ) : (
+          <button
+            className="account-button"
+            onClick={() => navigate("/profile")}
+          >
+            Account
+          </button>
+        )}
       </div>
 
       <Row className="main">

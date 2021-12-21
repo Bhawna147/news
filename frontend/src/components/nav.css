@@ -1,4 +1,3 @@
-
 .pages {
   /* color: #316685; */
   color: white;
@@ -8,26 +7,22 @@
 }
 
 .nav-logo-main {
-background-image: url("./Logo2.png");
-height: 66px;
-width: 230px;
-/* border: 2px solid white; */
-background-position: center;
-background-size: cover;
+  background-image: url("./Logo2.png");
+  height: 66px;
+  width: 230px;
+  /* border: 2px solid white; */
+  background-position: center;
+  background-size: cover;
 }
 
 .navbar {
-  /* background-color: #1f5156; */
   background-color: #08ccd9;
   height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.1rem;
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  /* width: 100vw; */
+  
 }
 
 .nav-container {
@@ -72,10 +67,10 @@ background-size: cover;
   height: 100%;
   border-bottom: 3px solid transparent;
 }
-.nav-button-active{
+.nav-button-active {
   display: none;
 }
-.nav-button{
+.nav-button {
   background: #08ccd9;
   border: 2px solid white;
   color: white;
@@ -88,11 +83,11 @@ background-size: cover;
   height: 35px;
   margin: 10px 45px 10px 0;
   /* border: none; */
-  }
+}
 
-.nav-button:hover{
-    background-color: rgb(255, 255, 255);
-    color: black;
+.nav-button:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
 }
 
 .fa-code {
@@ -135,8 +130,6 @@ background-size: cover;
 }
 
 @media screen and (max-width: 960px) {
-
-
   .nav-menu {
     display: flex;
     flex-direction: column;
@@ -156,6 +149,7 @@ background-size: cover;
     opacity: 1;
     transition: all 0.5s ease;
     z-index: 1;
+    height: 100vh;
     padding-bottom: 20px;
   }
   .nav-item .active {
@@ -178,7 +172,6 @@ background-size: cover;
     font-size: 1.8rem;
     cursor: pointer;
     color: black;
-    
   }
 
   .nav-item {
@@ -190,21 +183,16 @@ background-size: cover;
     /* margin-bottom: 2rem; */
     /* background-color: yellow; */
   }
-
 }
 
-
 @media screen and (max-width: 650px) {
-
   /* .nav-item {
     margin: 0 10% 0 0;
   } */
 
-
-.nav-button-active{
-  display: inline;
-}
-
+  .nav-button-active {
+    display: inline;
+  }
 }
 
 /* .nav{

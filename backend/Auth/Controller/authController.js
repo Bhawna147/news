@@ -22,11 +22,11 @@ const register = async (req, res) => {
         message: "User already exists...",
       });
     } else {
-      // const hashedPassword = await bcrypt.hash(req.body.password, 10);
+      const hashedPassword = await bcrypt.hash(req.body.password, 10);
       const user = new User({
         name: req.body.name,
         email: req.body.email,
-        password: req.body.password,
+        password: hashedPassword,
         gender: req.body.gender,
         country: req.body.country,
         state: req.body.state,
@@ -46,7 +46,7 @@ const register = async (req, res) => {
 };
 
 const login = async (req, res, next) => {
-  // console.log(req.body);
+  console.log(req.body);
   passport.authenticate("local", (err, user, info) => {
     if (err) throw err;
     if (!user)

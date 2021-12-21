@@ -19,7 +19,6 @@ import "./sign.css";
 axios.defaults.withCredentials = true;
 
 function Copyright(props) {
-
   return (
     <Typography
       variant="body2"
@@ -40,27 +39,25 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Signin() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   document.title = "SignIn";
 
-  const [userName, setUserName] = React.useState("");
+  const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   //   const History = useHistory();
   const HandleSubmit = (event) => {
     axios
-      .post(`${process.env.REACT_APP_SERVER_ADDRESS}/login`, {
-        data: {
-          userName: userName,
-          password: password,
-        },
+      .post(`${process.env.REACT_APP_SERVER_ADDRESS}/api/auth/login`, {
+        email: email,
+        password: password,
       })
       .then((res) => {
+        console.log(res.data);
         if (res.data.success === true) {
           sessionStorage.setItem("LoggedIn", true);
-          sessionStorage.setItem("isAdmin", res.data.admin);
-          History.push(-1);
+          navigate("/");
         } else {
-          setUserName("");
+          setEmail("");
           setPassword("");
           //   createNotification(res.data.err, "error", 3000);
         }
@@ -116,10 +113,10 @@ export default function Signin() {
                 name="email"
                 autoComplete="email"
                 onChange={(e) => {
-                  setUserName(e.target.value);
+                  setEmail(e.target.value);
                 }}
                 autoFocus
-                value={userName}
+                value={email}
               />
               <TextField
                 margin="normal"
