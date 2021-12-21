@@ -10,8 +10,8 @@ const Home = () => {
   return (
     <>
       <Main />
-      <News />
       <Columns />
+      <News />
       <Dealstreet />
       <Interviews />
       <Footer />

@@ -1,19 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Nav from "./Nav";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useNavigate } from "react-router-dom";
 import "./main.css";
-
+import Axios from "axios";
+function truncate(str) {
+  return str.length > 10 ? str.substring(0, 150) + "..." : str;
+}
 const Main = () => {
   const navigate = useNavigate();
-  const arr = [
-    " 1. Politicians, clerics, envoys pay last respects to Gen Rawat ahead of funeral",
-    " 2. Politicians, clerics, envoys pay last respects to Gen Rawat ahead of funeral",
-    " 3. Politicians, clerics, envoys pay last respects to Gen Rawat ahead of funeral",
-    " 4. Politicians, clerics, envoys pay last respects to Gen Rawat ahead of funeral",
-    " 5. Politicians, clerics, envoys pay last respects to Gen Rawat ahead of funeral",
-  ];
+  const [latest, setLatest] = useState([]);
+  useEffect(() => {
+    Latestnews();
+  }, []);
+
+  const Latestnews = async () => {
+    await Axios.get(
+      `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/all/8`
+    ).then((res) => {
+      console.log(res.data.data);
+      setLatest([...res.data.data]);
+    });
+    console.log("latest", latest);
+  };
   return (
     <>
       <Nav />
@@ -22,7 +32,7 @@ const Main = () => {
         <h1 className="main-heading">Today's Top Stories</h1>
         <div className="top-heading-filler"></div>
         <button onClick={() => navigate("/signin")}>Sign In</button>
-        <button onClick={() => navigate("/signup" )}>Sign Up</button>
+        <button onClick={() => navigate("/signup")}>Sign Up</button>
       </div>
 
       <Row className="main">
@@ -36,30 +46,14 @@ const Main = () => {
         >
           <div className="latest-news">
             <h3 className="latest-news-heading">Latest News</h3>
-            <div className="latest-news-item">
-              <p>
-                Politicians, clerics, envoys pay last respects to Gen Rawat
-                ahead of funeral
-              </p>
-            </div>
-            <div className="latest-news-item">
-              <p>
-                Politicians, clerics, envoys pay last respects to Gen Rawat
-                ahead of funeral
-              </p>
-            </div>
-            <div className="latest-news-item">
-              <p>
-                Politicians, clerics, envoys pay last respects to Gen Rawat
-                ahead of funeral
-              </p>
-            </div>
-            <div className="latest-news-item">
-              <p>
-                Politicians, clerics, envoys pay last respects to Gen Rawat
-                ahead of funeral
-              </p>
-            </div>
+            {latest.length > 0 &&
+              latest.slice(0, 4).map((item, index) => {
+                return (
+                  <div className="latest-news-item" key={index}>
+                    <p>{truncate(item.desc)}</p>
+                  </div>
+                );
+              })}
           </div>
         </Col>
 
@@ -74,7 +68,8 @@ const Main = () => {
           <div className="top-news">
             <h4 className="top-news-heading">
               Politicians, clerics, envoys pay last respects to Gen Rawat ahead
-              of funeral
+              of funeral Politicians, clerics, envoys pay last respects to Gen
+              Rawat
             </h4>
             <div
               className=" main-right-container"

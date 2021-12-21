@@ -2,6 +2,7 @@ import React from "react";
 import "./interviews.css";
 import Carousel from "react-elastic-carousel";
 import Mainnews from "./Main_News";
+import Nav from "./Nav";
 
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
@@ -12,7 +13,8 @@ const breakPoints = [
 
 const Columns = () => {
   return (
-    <div id="columns">
+    <div>
+      <Nav />
       <h1 className="section-heading">Columns</h1>
 
       <div className="columns">
