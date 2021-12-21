@@ -1,5 +1,4 @@
 const News = require("../models/News");
-const faker = require("faker");
 const addNews = async (req, res) => {
   if (req.isAuthenticated() && req.user.admin) {
     const data = {
@@ -9,19 +8,9 @@ const addNews = async (req, res) => {
       video_link: req.body.video_link,
       full_story: req.body.full_story,
       date: new Date(),
-      sections: req.body.sections,
+      sections: [req.body.sections],
+      paid: false,
     };
-    // const sections = ["news", "column", "deal_street", "interview"];
-    // const data = {
-    //   heading: faker.name.findName(),
-    //   thumbnail: faker.image.business(),
-    //   desc: faker.lorem.paragraphs(),
-    //   video_link: faker.image.animals(),
-    //   full_story: faker.lorem.paragraphs(),
-    //   date: faker.date.past(),
-    //   sections: [sections[Math.floor(Math.random() * 4)]],
-    //   paid: Math.floor(Math.random() * 10000) % 2 === 0 ? true : false,
-    // };
     try {
       let restaurant = new News(data);
       await restaurant.save();
@@ -47,19 +36,27 @@ const addNews = async (req, res) => {
 };
 
 const getNewsSection = async (req, res) => {
+  console.log(req.params["section"]);
   const news = await News.find({
     sections: { $all: [req.params["section"]] },
     paid:
       req.isAuthenticated() && req.user.subscirbed
         ? { $in: [true, false] }
         : false,
-  });
+  })
+    .sort({
+      _id: -1,
+    })
+    .limit(parseInt(req.params.count));
+  console.log(news);
   if (news) {
-    return res.json({ err: false, message: "Success", news: news });
+    return res.json({ err: false, success: true, data: news });
   } else {
-    return res
-      .status(404)
-      .json({ err: true, message: "No news found with this id" });
+    return res.status(404).json({
+      err: true,
+      success: false,
+      message: "No news found with this id",
+    });
   }
 };
 
@@ -75,33 +72,21 @@ const getAllNews = async (req, res) => {
         _id: -1,
       })
       .limit(parseInt(req.params.count));
+    console.log(news);
     if (news) {
-      return res.json({ err: false, message: "Success", ...news });
+      return res.json({ err: false, success: true, data: news });
     } else {
-      return res.status(404).json({ err: true, message: "Fail No news found" });
+      return res
+        .status(404)
+        .json({ err: true, success: false, message: "Fail No news found" });
     }
   } catch (err) {
     console.log(err);
-    return res.status(500).json({ err: true, message: "Something went wrong" });
+    return res
+      .status(500)
+      .json({ err: true, seccess: false, message: "Something went wrong" });
   }
 };
-
-// const filterNesws = async (req, res) => {
-//   let { filters, sort } = req.body;
-//   for (let key in filters[0]) {
-//     if (key == "cuisines") {
-//       let reg = new RegExp(filters[0][key], "i");
-//       filters = [{ ...filters[0], cuisines: reg }];
-//     }
-//   }
-//   try {
-//     const restaurant = await Restaurant.find(...filters).sort(...sort);
-//     return res.json({ err: false, message: "Success", restaurant: restaurant });
-//   } catch (err) {
-//     console.log(err);
-//     return res.status(500).json({ err: true, message: "Something went wrong" });
-//   }
-// };
 
 module.exports = {
   getNewsSection,

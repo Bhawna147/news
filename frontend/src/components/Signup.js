@@ -69,20 +69,23 @@ export default function Signup() {
       phone: formData.get("phone"),
       password: formData.get("password"),
     };
+
+    console.log(data);
     Axios.post(`${process.env.REACT_APP_SERVER_ADDRESS}/api/auth/register`, {
       data: { ...data },
     })
       .then((res) => {
+        console.log(res);
         if (res.data.success === true) {
-          sessionStorage.setItem("LoggedIn", true);
-          History.push(-1);
+          // sessionStorage.setItem("LoggedIn", true);
+          navigate("/signin");
         } else {
           alert(res.data.err);
         }
       })
       .catch((err) => {
-        console.log(err);
-        History.push("/");
+        alert("Sorry some error was caused");
+        navigate("/signup");
       });
   };
 
@@ -205,7 +208,6 @@ export default function Signup() {
                     label="Phone Number"
                     type="phone"
                     id="phone"
-        
                   />
                 </Grid>
                 <Grid item xs={12}>

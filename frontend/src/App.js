@@ -2,7 +2,7 @@ import React from "react";
 // import { Route, Routes} from "react-router-dom";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import Main from "./components/Main";
+// import Main from "./components/Main";
 import Signin from "./components/Signin";
 import Signup from "./components/Signup";
 import News from "./components/News";
