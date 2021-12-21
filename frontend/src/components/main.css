@@ -9,7 +9,9 @@ html {
   padding: 0;
   font-family: sans-serif;
 }
-
+.invisble {
+  display: none;
+}
 body {
   width: 100%;
   overflow-x: hidden;
@@ -108,7 +110,7 @@ body {
   border-bottom: 1px solid rgb(73, 73, 73, 0.2);
 }
 
-.latest-news-btn {
+/* .latest-news-btn {
   background-color: white;
   border: none;
   outline: none;
@@ -117,7 +119,7 @@ body {
   color: #08ccd9;
   margin: auto;
   margin-top: 10px;
-}
+} */
 
 
 

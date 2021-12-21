@@ -77,8 +77,20 @@ const App = () => {
     <Router>
       <Routes>
         <Route exact path="/" element={<Home />}></Route>
-        <Route exaxct path="/signin" element={<Signin />}></Route>
-        <Route exact path="/signup" element={<Signup />}></Route>
+        <Route
+          exaxct
+          path="/signin"
+          element={
+            loggedIn == true ? <Navigate replace to="/profile" /> : <Signin />
+          }
+        ></Route>
+        <Route
+          exact
+          path="/signup"
+          element={
+            loggedIn == true ? <Navigate replace to="/profile" /> : <Signup />
+          }
+        ></Route>
         <Route
           exact
           path="/profile"
