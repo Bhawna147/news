@@ -79,8 +79,8 @@ export default function Signup() {
         if (res.data.success === true) {
           // sessionStorage.setItem("LoggedIn", true);
           navigate("/signin");
-        } else {
-          alert(res.data.err);
+        } else if (res.data.success == false && res.data.err == false) {
+          alert(res.data.message);
         }
       })
       .catch((err) => {

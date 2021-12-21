@@ -97,33 +97,48 @@ function Nav() {
                 Interviews
               </Link>
             </li>
-            <>
+            {loggedIn ? (
               <li className="nav-item nav-button-active">
                 <Link
                   exact
-                  to="/signin"
+                  to="/profile"
                   activeClassName="active"
                   className="nav-links"
                   onClick={click ? handleClick : null}
                   style={{ color: "white" }}
                 >
-                  Sign In
+                  Profile
                 </Link>
               </li>
-
-              <li className="nav-item nav-button-active">
-                <Link
-                  exact
-                  to="/signup"
-                  activeClassName="active"
-                  className="nav-links"
-                  onClick={click ? handleClick : null}
-                  style={{ color: "white" }}
-                >
-                  Sign Up
-                </Link>
-              </li>
-            </>
+            ) : (
+              <>
+                {" "}
+                <li className="nav-item nav-button-active">
+                  <Link
+                    exact
+                    to="/signin"
+                    activeClassName="active"
+                    className="nav-links"
+                    onClick={click ? handleClick : null}
+                    style={{ color: "white" }}
+                  >
+                    Sign In
+                  </Link>
+                </li>
+                <li className="nav-item nav-button-active">
+                  <Link
+                    exact
+                    to="/signup"
+                    activeClassName="active"
+                    className="nav-links"
+                    onClick={click ? handleClick : null}
+                    style={{ color: "white" }}
+                  >
+                    Sign Up
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
 
           <div className="nav-icon" onClick={handleClick}>

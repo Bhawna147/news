@@ -21,7 +21,9 @@ body {
   display: flex;
   margin-right: 5%;
 }
-
+.top-news {
+  transition: all 0.5s ease;
+}
 .top-heading-filler {
   flex-grow: 1;
 }
@@ -95,7 +97,6 @@ body {
   margin-left: 35px;
 }
 
-
 .latest-news-heading {
   text-align: center;
   padding: 10px;
@@ -120,12 +121,6 @@ body {
   margin: auto;
   margin-top: 10px;
 } */
-
-
-
-
-
-
 
 @media screen and (max-width: 1200px) {
   .main-heading {
@@ -162,9 +157,7 @@ body {
     width: 95px;
     height: 40px;
   }
-
 }
-
 
 @media screen and (max-width: 1100px) {
   .main-heading {
@@ -186,17 +179,13 @@ body {
   .latest-news-heading {
     font-size: 23px;
   }
-
-
 }
 
 @media screen and (max-width: 1000px) {
   .top-heading button {
     width: 90px;
   }
-
 }
-
 
 @media screen and (max-width: 992px) {
   .latest-news {
@@ -205,22 +194,20 @@ body {
   .main-left {
     display: none;
   }
-  .top-heading button { 
-     font-size: 18px;
-}
+  .top-heading button {
+    font-size: 18px;
+  }
 
-.top-heading button { 
-  height: 35px;
-}
-
+  .top-heading button {
+    height: 35px;
+  }
 }
 
 @media screen and (max-width: 700px) {
-
-.top-heading button { 
-  font-size: 17px;
-  width: 85px;
-}
+  .top-heading button {
+    font-size: 17px;
+    width: 85px;
+  }
 }
 
 @media screen and (max-width: 650px) {
@@ -228,10 +215,6 @@ body {
     display: none;
   }
 }
-
-
-
-
 
 /* //////////////////main news CSS ////////////////*/
 @media screen and (max-width: 992px) {
@@ -252,7 +235,6 @@ body {
     width: 60vw;
     /* margin-left: 20px; */
   }
-
 }
 @media screen and (max-width: 800px) {
   .top-news-heading {
@@ -262,7 +244,6 @@ body {
   .main-right-container {
     height: 300px;
   }
-
 }
 @media screen and (max-width: 700px) {
   .main-right-container {
@@ -271,8 +252,6 @@ body {
   .top-news-heading {
     font-size: 17px;
   }
-
-
 }
 @media screen and (max-width: 550px) {
   .main-right-container {
