@@ -6,7 +6,8 @@ require("../validation/passportConfig")(passport);
 dotenv.config();
 
 const register = async (req, res) => {
-  User.findOne({ email: req.body.data.email }, async (err, data) => {
+  console.log(req.body);
+  User.findOne({ email: req.body.email }, async (err, data) => {
     if (err) {
       return res.send({
         err: true,
@@ -21,17 +22,17 @@ const register = async (req, res) => {
         message: "User already exists...",
       });
     } else {
-      const hashedPassword = await bcrypt.hash(req.body.data.password, 10);
+      // const hashedPassword = await bcrypt.hash(req.body.password, 10);
       const user = new User({
-        name: req.body.data.name,
-        email: req.body.data.email,
-        password: hashedPassword,
-        gender: req.body.data.gender,
-        country: req.body.data.country,
-        state: req.body.data.state,
-        city: req.body.data.city,
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password,
+        gender: req.body.gender,
+        country: req.body.country,
+        state: req.body.state,
+        city: req.body.city,
         orders: [],
-        phone: req.body.data.phone,
+        phone: req.body.phone,
         subscirbed: false,
       });
       await user.save();
