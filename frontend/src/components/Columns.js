@@ -16,7 +16,11 @@ const Columns = () => {
       <h1 className="section-heading">Columns</h1>
 
       <div className="columns">
-        <Carousel breakPoints={breakPoints}>
+        <Carousel
+          breakPoints={breakPoints}
+          // enableAutoPlay={true}
+          // autoPlaySpeed={2000}
+        >
           <Mainnews classN="main-news-container-vertical" color="white" />
           <Mainnews classN="main-news-container-vertical" color="white" />
           <Mainnews classN="main-news-container-vertical" color="white" />

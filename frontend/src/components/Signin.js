@@ -56,7 +56,8 @@ export default function Signin() {
         if (res.data.success === true) {
           sessionStorage.setItem("LoggedIn", true);
           navigate("/");
-        } else {
+        } else if (res.data.success === false && res.data.err == false) {
+          alert(res.data.message);
           setEmail("");
           setPassword("");
           //   createNotification(res.data.err, "error", 3000);
