@@ -72,7 +72,7 @@ export default function Signup() {
 
     console.log(data);
     Axios.post(`${process.env.REACT_APP_SERVER_ADDRESS}/api/auth/register`, {
-      data: { ...data },
+      ...data,
     })
       .then((res) => {
         console.log(res);

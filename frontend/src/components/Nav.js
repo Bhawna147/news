@@ -20,23 +20,23 @@ function Nav() {
       <div className={click ? "main-container" : ""} onClick={() => Close()} />
       <nav className="navbar" onClick={(e) => e.stopPropagation()}>
         <div className="nav-container">
-          <NavLink
+          <Link
             exact
             to="/"
             className="nav-logo"
             style={{ color: "white", padding: 0 }}
           >
             Academy Hub
-          </NavLink>
+          </Link>
 
           <ul
             className={click ? "nav-menu active" : "nav-menu"}
             style={{ marginBottom: 0 }}
           >
             <li className="nav-item">
-              <Link  
+              <Link
                 exact
-                to="/news"
+                to="/allnews"
                 activeClassName="active"
                 className="nav-links"
                 onClick={click ? handleClick : null}
@@ -47,10 +47,9 @@ function Nav() {
             </li>
 
             <li className="nav-item">
-           
               <Link
                 exact
-                to="/columns"
+                to="/allcolumns"
                 activeClassName="active"
                 className="nav-links"
                 onClick={click ? handleClick : null}
@@ -64,7 +63,7 @@ function Nav() {
             <li className="nav-item">
               <Link
                 exact
-                to="/dealstreet"
+                to="/alldealstreet"
                 activeClassName="active"
                 className="nav-links"
                 onClick={click ? handleClick : null}
@@ -76,7 +75,7 @@ function Nav() {
             <li className="nav-item">
               <Link
                 exact
-                to="/interviews"
+                to="/allinterviews"
                 activeClassName="active"
                 className="nav-links"
                 onClick={click ? handleClick : null}
@@ -86,7 +85,7 @@ function Nav() {
               </Link>
             </li>
 
-            <li className="nav-item nav-button-active" >
+            <li className="nav-item nav-button-active">
               <Link
                 exact
                 to="/signin"
@@ -99,7 +98,7 @@ function Nav() {
               </Link>
             </li>
 
-            <li className="nav-item nav-button-active" >
+            <li className="nav-item nav-button-active">
               <Link
                 exact
                 to="/signup"
@@ -112,14 +111,12 @@ function Nav() {
               </Link>
             </li>
 
-
             {/* <li>
               <button className="nav-button nav-button-active">Sign In</button>
             </li>
             <li>
               <button className="nav-button nav-button-active">Sign Up</button>
             </li> */}
-
           </ul>
 
           <div className="nav-icon" onClick={handleClick}>
