@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./interviews.css";
 import Carousel from "react-elastic-carousel";
 import Mainnews from "./Main_News";
+import Axios from "axios";
 
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
@@ -11,17 +12,37 @@ const breakPoints = [
 ];
 
 const Columns = () => {
+  const [column, setcolumn] = useState([]);
+  useEffect(() => {
+    getcolumn();
+  }, []);
+
+  const getcolumn = async () => {
+    await Axios.get(
+      `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/section/column/20`
+    ).then((res) => {
+      // console.log(res.data.data);
+      setcolumn([...res.data.data]);
+    });
+    // console.log("all-news", column.length);
+  };
   return (
     <div id="columns">
       <h1 className="section-heading">Columns</h1>
 
       <div className="columns">
-        <Carousel
-          breakPoints={breakPoints}
-          // enableAutoPlay={true}
-          // autoPlaySpeed={2000}
-        >
-          <Mainnews classN="main-news-container-vertical" color="white" />
+        <Carousel breakPoints={breakPoints}>
+          {column.length > 0 &&
+            column.map((item, index) => {
+              return (
+                <Mainnews
+                  classN="main-news-container-vertical"
+                  item={{ head: item.heading, img: item.thumbnail }}
+                  characters={200}
+                />
+              );
+            })}
+          {/* <Mainnews classN="main-news-container-vertical" color="white" />
           <Mainnews classN="main-news-container-vertical" color="white" />
           <Mainnews classN="main-news-container-vertical" color="white" />
           <Mainnews classN="main-news-container-vertical" color="white" />
@@ -34,7 +55,7 @@ const Columns = () => {
           <Mainnews classN="main-news-container-vertical" color="white" />
           <Mainnews classN="main-news-container-vertical" color="white" />
           <Mainnews classN="main-news-container-vertical" color="white" />
-          <Mainnews classN="main-news-container-vertical" color="white" />
+          <Mainnews classN="main-news-container-vertical" color="white" /> */}
         </Carousel>
       </div>
     </div>
