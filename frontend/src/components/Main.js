@@ -20,19 +20,19 @@ const Main = () => {
     const channel = [
       {
         img: "https://c.ndtvimg.com/2021-12/mt9avqvg_chennai-airport-_625x300_01_December_21.jpg",
-        head: " Politicians, clerics, envoys pay last respects to Gen Rawat ahead of funeral Politicians, clerics, envoys pay last respects to Gen Rawat",
+        head: "Hello Ayush",
       },
       {
         img: "https://images.unsplash.com/photo-1640092593995-54d71076b961?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-        head: " Politicians, clerics, envoys pay last respects to Gen Rawat ahead of funeral Politicians, clerics, envoys pay last respects ",
+        head: "Hello Birju Tommper",
       },
       {
         img: "https://images.unsplash.com/photo-1633113089631-6456cccaadad?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwyNnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-        head: " Politicians, clerics, envoys pay last respects to Gen Rawat ahead of funeral Politicians, clerics, envoys pay last respects to Gen Rawat",
+        head: "Hello Bhamuna Tommper",
       },
       {
         img: "https://images.unsplash.com/photo-1639921769902-158d63270f34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyOHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-        head: " Politicians, clerics, envoys pay last respects to Gen Rawat ahead of funeral Politicians, clerics, envoys pay last respects to Gen Rawat",
+        head: "Hello Good Ayush ",
       },
     ];
     return (
@@ -89,10 +89,10 @@ const Main = () => {
     await Axios.get(
       `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/all/8`
     ).then((res) => {
-      console.log(res.data.data);
+      // console.log(res.data.data);
       setLatest([...res.data.data]);
     });
-    console.log("latest", latest);
+    // console.log("latest", latest);
   };
   return (
     <>
