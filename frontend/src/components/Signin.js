@@ -38,7 +38,7 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function Signin() {
+export default function Signin(props) {
   const navigate = useNavigate();
   document.title = "SignIn";
 
@@ -54,7 +54,7 @@ export default function Signin() {
       .then((res) => {
         console.log(res.data);
         if (res.data.success === true) {
-          sessionStorage.setItem("LoggedIn", true);
+          props.setLoggedIn(true);
           navigate("/");
         } else if (res.data.success === false && res.data.err == false) {
           alert(res.data.message);

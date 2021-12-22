@@ -63,7 +63,15 @@ const login = async (req, res, next) => {
     }
   })(req, res, next);
 };
-
+const logout = async (req, res) => {
+  try {
+    req.logOut();
+    res.send({ err: false, success: true, message: "Logged Out Successfully" });
+  } catch (err) {
+    console.log(err);
+    res.send({ err: true, success: false, message: "Something went wrong.." });
+  }
+};
 const isAuth = async (req, res) => {
   if (req.isAuthenticated()) {
     res.send({
@@ -81,4 +89,5 @@ module.exports = {
   register,
   login,
   isAuth,
+  logout,
 };
