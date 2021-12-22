@@ -46,42 +46,19 @@ const App = () => {
     }
   };
 
-  // React.useEffect(() => {
-  //   Axios.get(`${process.env.REACT_APP_SERVER_ADDRESS}/api/news/all/10`).then(
-  //     (res) => {
-  //       console.log(res.data);
-  //     }
-  //   );
-  //   Axios.get(
-  //     `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/section/news/10`
-  //   ).then((res) => {
-  //     console.log(res.data);
-  //   });
-  //   Axios.get(
-  //     `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/section/column/10`
-  //   ).then((res) => {
-  //     console.log(res.data);
-  //   });
-  //   Axios.get(
-  //     `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/section/deal_street/10`
-  //   ).then((res) => {
-  //     console.log(res.data);
-  //   });
-  //   Axios.get(
-  //     `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/section/interview/10`
-  //   ).then((res) => {
-  //     console.log(res.data);
-  //   });
-  // });
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<Home />}></Route>
+        <Route exact path="/" element={<Home loggedIn={loggedIn} />}></Route>
         <Route
           exaxct
           path="/signin"
           element={
-            loggedIn == true ? <Navigate replace to="/profile" /> : <Signin />
+            loggedIn == true ? (
+              <Navigate replace to="/profile" />
+            ) : (
+              <Signin setLoggedIn={setLoggedIn} />
+            )
           }
         ></Route>
         <Route
@@ -95,7 +72,11 @@ const App = () => {
           exact
           path="/profile"
           element={
-            loggedIn == true ? <Profile /> : <Navigate replace to="/signin" />
+            loggedIn == true ? (
+              <Profile setLoggedIn={setLoggedIn} />
+            ) : (
+              <Navigate replace to="/signin" />
+            )
           }
         />
         <Route exact path="/video" element={<Video />}></Route>

@@ -10,11 +10,11 @@ import Axios from "axios";
 function truncate(str, length) {
   return str.length > 10 ? str.substring(0, length) + "..." : str;
 }
-const Main = () => {
+const Main = (props) => {
   const navigate = useNavigate();
   const [latest, setLatest] = useState([]);
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [index, setindex] = useState(0);
+  console.log(props);
+  // const [loggedIn, setLoggedIn] = useState(false);
 
   function Example(props) {
     const channel = [
@@ -64,26 +64,26 @@ const Main = () => {
   }
 
   useEffect(() => {
-    Axios.get(`${process.env.REACT_APP_SERVER_ADDRESS}/api/auth/isAuth`, {})
-      .then((res) => {
-        sessionStorage.setItem("LoggedIn", res.data.isAuth);
-        setLoggedIn(res.data.isAuth);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    // Axios.get(`${process.env.REACT_APP_SERVER_ADDRESS}/api/auth/isAuth`, {})
+    //   .then((res) => {
+    //     sessionStorage.setItem("LoggedIn", res.data.isAuth);
+    //     setLoggedIn(res.data.isAuth);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
     Latestnews();
   }, []);
 
-  const isAuth = () => {
-    if (sessionStorage.getItem("LoggedIn") === "true") {
-      setLoggedIn(true);
-      return true;
-    } else {
-      setLoggedIn(false);
-      return false;
-    }
-  };
+  // const isAuth = () => {
+  //   if (sessionStorage.getItem("LoggedIn") === "true") {
+  //     setLoggedIn(true);
+  //     return true;
+  //   } else {
+  //     setLoggedIn(false);
+  //     return false;
+  //   }
+  // };
 
   const Latestnews = async () => {
     await Axios.get(
@@ -101,7 +101,7 @@ const Main = () => {
       <div className="top-heading">
         <h1 className="main-heading">Today's Top Stories</h1>
         <div className="top-heading-filler"></div>
-        {loggedIn == false ? (
+        {props.loggedIn == false ? (
           <div>
             <button className="sign-button" onClick={() => navigate("/signin")}>
               Sign In

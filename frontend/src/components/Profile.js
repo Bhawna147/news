@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Axios from "axios";
 // import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -10,31 +10,33 @@ import { Row, Col } from "react-bootstrap";
 
 Axios.defaults.withCredentials = true;
 
-const Profile = () => {
+const Profile = (props) => {
   const navigate = useNavigate();
-  // const history = useHistory();
-  // const [name, setName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [mobile, setMobile] = useState("");
-  // Axios.post("http://localhost:8000/cart", {
-  //   name: "ayush",
-  // }).then((response) => {
-  //   if (response.data.data === false) {
-  //     history.push({
-  //       pathname: "/signin",
-  //     });
-  //   } else {
-  //     if (response.data.usr === "admin") {
-  //       history.push({
-  //         pathname: "/admin",
-  //       });
-  //     } else {
-  //       setMobile(response.data.mobile);
-  //       setName(response.data.name);
-  //       setEmail(response.data.email);
-  //     }
-  //   }
-  // });
+
+  const [info, setInfo] = useState({ name: "", email: "", mobile: "" });
+
+  useEffect(() => {
+    Axios.get(`${process.env.REACT_APP_SERVER_ADDRESS}/api/auth/isAuth`).then(
+      (res) => {
+        setInfo(res.data.info);
+      }
+    );
+  }, []);
+  const logout = () => {
+    Axios.get(`${process.env.REACT_APP_SERVER_ADDRESS}/api/auth/logout`)
+      .then((res) => {
+        if (res.data.success == true) {
+          props.setLoggedIn(false);
+          alert(res.data.message);
+          navigate("/");
+        } else if (res.data.success == false && res.data.err == true) {
+          alert(res.data.message);
+        }
+      })
+      .catch((err) => {
+        alert("OOPS something went wrong");
+      });
+  };
 
   return (
     <div className="profile-container">
@@ -64,7 +66,7 @@ const Profile = () => {
                   </Link>
                   <br /> */}
 
-            <button className="profile-button">
+            <button className="profile-button" onClick={logout}>
               <ExitToAppIcon
                 className="profile-icon"
                 style={{ fontSize: 20 }}
@@ -78,15 +80,11 @@ const Profile = () => {
         {/* right/////////////////// */}
 
         <Col lg={8} md={8} className="profile-right">
-          <h1>
-            Hi
-            {/* {name} !! */}
-          </h1>
+          <h1>Hi {info.name}</h1>
           <div className="profile-data">
-            <p className="line">Email -{/* {email} */}</p>
-            <p className="line">Mobile -{/* {mobile} */}</p>
+            <p className="line">Email -{info.email}</p>
+            <p className="line">Mobile -{info.phone}</p>
           </div>
-          {/* <div className="profile-vector"></div> */}
         </Col>
       </Row>
     </div>

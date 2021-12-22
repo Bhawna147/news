@@ -6,10 +6,10 @@ import Interviews from "./components/Interviews";
 import Main from "./components/Main";
 import News from "./components/News";
 
-const Home = () => {
+const Home = (props) => {
   return (
     <>
-      <Main />
+      <Main loggedIn={props.loggedIn} />
       <Columns />
       <News />
       <Dealstreet />
