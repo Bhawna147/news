@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import "./interviews.css";
 import Carousel from "react-elastic-carousel";
 import Mainnews from "./Main_News";
 import Axios from "axios";
+import "./interviews.css";
 
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
@@ -42,20 +42,7 @@ const Columns = () => {
                 />
               );
             })}
-          {/* <Mainnews classN="main-news-container-vertical" color="white" />
-          <Mainnews classN="main-news-container-vertical" color="white" />
-          <Mainnews classN="main-news-container-vertical" color="white" />
-          <Mainnews classN="main-news-container-vertical" color="white" />
-
-          <Mainnews classN="main-news-container-vertical" color="white" />
-          <Mainnews classN="main-news-container-vertical" color="white" />
-          <Mainnews classN="main-news-container-vertical" color="white" />
-          <Mainnews classN="main-news-container-vertical" color="white" />
-
-          <Mainnews classN="main-news-container-vertical" color="white" />
-          <Mainnews classN="main-news-container-vertical" color="white" />
-          <Mainnews classN="main-news-container-vertical" color="white" />
-          <Mainnews classN="main-news-container-vertical" color="white" /> */}
+        
         </Carousel>
       </div>
     </div>

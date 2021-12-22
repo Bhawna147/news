@@ -13,10 +13,10 @@ const Dealstreet = () => {
     await Axios.get(
       `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/section/deal_street/6`
     ).then((res) => {
-      console.log(res.data.data);
+      // console.log(res.data.data);
       setdealStreet([...res.data.data]);
     });
-    console.log("all-news", dealStreet.length);
+    // console.log("all-news", dealStreet.length);
   };
   return (
     <div>

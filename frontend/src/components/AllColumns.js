@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Axios from "axios";
 import "./interviews.css";
 import Carousel from "react-elastic-carousel";
 import Mainnews from "./Main_News";
@@ -12,6 +13,20 @@ const breakPoints = [
 ];
 
 const Columns = () => {
+  const [column, setcolumn] = useState([]);
+  useEffect(() => {
+    getcolumn();
+  }, []);
+
+  const getcolumn = async () => {
+    await Axios.get(
+      `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/section/column/1000`
+    ).then((res) => {
+      // console.log(res.data.data);
+      setcolumn([...res.data.data]);
+    });
+    // console.log("all-news", column.length);
+  };
   return (
     <div>
       <Nav />
@@ -19,20 +34,16 @@ const Columns = () => {
 
       <div className="columns">
         <Carousel breakPoints={breakPoints}>
-          <Mainnews classN="main-news-container-vertical" color="white" />
-          <Mainnews classN="main-news-container-vertical" color="white" />
-          <Mainnews classN="main-news-container-vertical" color="white" />
-          <Mainnews classN="main-news-container-vertical" color="white" />
-
-          <Mainnews classN="main-news-container-vertical" color="white" />
-          <Mainnews classN="main-news-container-vertical" color="white" />
-          <Mainnews classN="main-news-container-vertical" color="white" />
-          <Mainnews classN="main-news-container-vertical" color="white" />
-
-          <Mainnews classN="main-news-container-vertical" color="white" />
-          <Mainnews classN="main-news-container-vertical" color="white" />
-          <Mainnews classN="main-news-container-vertical" color="white" />
-          <Mainnews classN="main-news-container-vertical" color="white" />
+          {column.length > 0 &&
+            column.map((item, index) => {
+              return (
+                <Mainnews
+                  classN="main-news-container-vertical"
+                  item={{ head: item.heading, img: item.thumbnail }}
+                  characters={200}
+                />
+              );
+            })}
         </Carousel>
       </div>
     </div>
