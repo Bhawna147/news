@@ -3,7 +3,7 @@ import Nav from "./Nav";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Carousel from "react-material-ui-carousel";
-import { Paper, Button } from "@mui/material";
+// import { Paper, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import "./main.css";
 import Axios from "axios";
@@ -20,19 +20,19 @@ const Main = (props) => {
     const channel = [
       {
         img: "https://c.ndtvimg.com/2021-12/mt9avqvg_chennai-airport-_625x300_01_December_21.jpg",
-        head: "Hello Ayush",
+        head: "Hello 1 Slide",
       },
       {
         img: "https://images.unsplash.com/photo-1640092593995-54d71076b961?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-        head: "Hello Birju Tommper",
+        head: "Hello 2 Slide",
       },
       {
         img: "https://images.unsplash.com/photo-1633113089631-6456cccaadad?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwyNnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-        head: "Hello Bhamuna Tommper",
+        head: "Hello 3 Slide",
       },
       {
         img: "https://images.unsplash.com/photo-1639921769902-158d63270f34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyOHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-        head: "Hello Good Ayush ",
+        head: "Hello 4 Slide ",
       },
     ];
     return (
@@ -64,26 +64,8 @@ const Main = (props) => {
   }
 
   useEffect(() => {
-    // Axios.get(`${process.env.REACT_APP_SERVER_ADDRESS}/api/auth/isAuth`, {})
-    //   .then((res) => {
-    //     sessionStorage.setItem("LoggedIn", res.data.isAuth);
-    //     setLoggedIn(res.data.isAuth);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
     Latestnews();
   }, []);
-
-  // const isAuth = () => {
-  //   if (sessionStorage.getItem("LoggedIn") === "true") {
-  //     setLoggedIn(true);
-  //     return true;
-  //   } else {
-  //     setLoggedIn(false);
-  //     return false;
-  //   }
-  // };
 
   const Latestnews = async () => {
     await Axios.get(

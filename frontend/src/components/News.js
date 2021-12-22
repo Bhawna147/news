@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Mainnews from "./Main_News";
-import "./interviews.css";
 import Axios from "axios";
+import "./interviews.css";
 
 const News = () => {
   const [news, setNews] = useState([]);
