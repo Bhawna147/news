@@ -2,30 +2,36 @@
   height: 100vh;
 }
 
-.video-display {
-  aspect-ratio: 16/9;
-  width: 60%;
-  border: 2px solid #08ccd9;
-  justify-content: center;
-  margin: 40px auto 20px auto;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  background-position: center;
-  background-size: cover;
+.video-display{
+  margin: 0 auto;
+  max-width: 960px;
+  /* padding: 0px 1.0875rem 1.45rem; */
+  padding-top: 0;
+
 }
+
+.player-wrapper {
+  position: relative;
+  padding-top: 56.25% ;
+}
+
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 4%;
+}
+
+
 
 .video-content {
-  padding: 20px;
-  text-align: left;
+  padding: 0px 30px 20px 30px;
+  text-align: justify;
 }
 
-.videoTag {
+/* .videoTag {
   height: 100%;
   width: 100%;
   z-index: 20;
-}
+} */
 
-@media screen and (max-width: 1200px) {
-  .video-display {
-    width: 80%;
-  }
-}
