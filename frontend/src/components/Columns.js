@@ -24,8 +24,10 @@ const Columns = () => {
     await Axios.get(
       `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/section/column/20`
     ).then((res) => {
+      // console.log(res.data.data);
       setcolumn([...res.data.data]);
     });
+    // console.log("all-news", column.length);
   };
   function fullpage(index, link) {
     if (link) {
@@ -43,13 +45,12 @@ const Columns = () => {
           {column.length > 0 &&
             column.map((item, index) => {
               return (
-                <React.Fragment>
-                  <Mainnews
-                    classN="main-news-container-vertical"
-                    item={{ head: item.heading, img: item.thumbnail }}
-                    characters={200}
-                  />
-                </React.Fragment>
+                <Mainnews
+                  classN="main-news-container-vertical"
+                  item={{ head: item.heading, img: item.thumbnail }}
+                  characters={200}
+                  onClick={() => fullpage(index, item.video_link)}
+                />
               );
             })}
         </Carousel>

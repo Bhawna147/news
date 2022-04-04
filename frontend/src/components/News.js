@@ -20,6 +20,8 @@ const News = () => {
   function fullpage(index, link) {
     if (link) {
       navigate("/video", { state: news[index] });
+    } else {
+      alert("not subscribed");
     }
   }
 
