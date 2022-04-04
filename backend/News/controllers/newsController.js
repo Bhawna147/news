@@ -73,19 +73,26 @@ const getAllNews = async (req, res) => {
         _id: -1,
       })
       .limit(parseInt(req.params.count));
-    // console.log(news);
+
+    const xdata = news;
     if (news) {
-      const newNews = news.map((data) => {
-        if (data.paid == true && req.isAuthenticated() && req.user.subscirbed) {
+      const newNews = xdata.map((data) => {
+        if (
+          data._doc.paid == true &&
+          req.isAuthenticated() &&
+          req.user.subscirbed
+        ) {
           return data;
         }
-        Object.keys(data).forEach(function (itm) {
-          if (itm != "heading" && itm != "_id" && itm != "thumbnail")
-            delete data[itm];
-        });
+
+        if (data._doc.paid == true) {
+          Object.keys(data._doc).forEach(function (itm) {
+            if (itm === "video_link" || itm == "full_story")
+              delete data._doc[itm];
+          });
+        }
         return data;
       });
-      console.log(newNews);
       return res.json({ err: false, success: true, data: newNews });
     } else {
       return res

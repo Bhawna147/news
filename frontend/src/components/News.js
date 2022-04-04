@@ -19,9 +19,12 @@ const News = () => {
     });
     // console.log("all-news", news.length);
   };
-  function fullpage(index) {
+  function fullpage(index, link) {
     // alert(index);
-    navigate("/video", { state: news[index] });
+
+    if (link) {
+      navigate("/video", { state: news[index] });
+    }
   }
 
   return (
@@ -31,10 +34,14 @@ const News = () => {
         {news.length > 0 &&
           news.map((item, index) => {
             return (
-              <div onClick={() => fullpage(index)}>
+              <div onClick={() => fullpage(index, item.video_link)}>
                 <Mainnews
                   classN="main-news-container-vertical"
-                  item={{ head: item.heading, img: item.thumbnail }}
+                  item={{
+                    head: item.heading,
+                    img: item.thumbnail,
+                    paid: item.paid,
+                  }}
                   characters={200}
                 />
               </div>
