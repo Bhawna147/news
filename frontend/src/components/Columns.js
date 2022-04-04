@@ -24,10 +24,8 @@ const Columns = () => {
     await Axios.get(
       `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/section/column/20`
     ).then((res) => {
-      // console.log(res.data.data);
       setcolumn([...res.data.data]);
     });
-    // console.log("all-news", column.length);
   };
   function fullpage(index, link) {
     if (link) {
