@@ -61,16 +61,12 @@ const getNewsSection = async (req, res) => {
   }
 };
 
+// get all news
 const getAllNews = async (req, res) => {
   try {
-    const news = await News.find({
-      // paid:
-      //   req.isAuthenticated() && req.user.subscirbed
-      //     ? { $in: [true, false] }
-      //     : false,
-    })
+    const news = await News.find({})
       .sort({
-        _id: -1,
+        _id: 1,
       })
       .limit(parseInt(req.params.count));
 
@@ -78,16 +74,16 @@ const getAllNews = async (req, res) => {
     if (news) {
       const newNews = xdata.map((data) => {
         if (
-          data._doc.paid == true &&
+          data._doc.paid === true &&
           req.isAuthenticated() &&
           req.user.subscirbed
         ) {
           return data;
         }
 
-        if (data._doc.paid == true) {
+        if (data._doc.paid === true) {
           Object.keys(data._doc).forEach(function (itm) {
-            if (itm === "video_link" || itm == "full_story")
+            if (itm === "video_link" || itm === "full_story")
               delete data._doc[itm];
           });
         }

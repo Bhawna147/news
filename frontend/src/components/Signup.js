@@ -23,25 +23,6 @@ import { useNavigate } from "react-router-dom";
 
 Axios.defaults.withCredentials = true;
 
-function Copyright(props) {
-  const navigate = useNavigate();
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="/">
-        NewsNation
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
-
 const theme = createTheme();
 
 export default function Signup() {
@@ -79,7 +60,7 @@ export default function Signup() {
         if (res.data.success === true) {
           // sessionStorage.setItem("LoggedIn", true);
           navigate("/signin");
-        } else if (res.data.success == false && res.data.err == false) {
+        } else if (res.data.success === false && res.data.err === false) {
           alert(res.data.message);
         }
       })

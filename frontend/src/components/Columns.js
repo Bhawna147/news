@@ -3,6 +3,7 @@ import Carousel from "react-elastic-carousel";
 import Mainnews from "./Main_News";
 import Axios from "axios";
 import "./interviews.css";
+import { useNavigate } from "react-router-dom";
 
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
@@ -12,6 +13,8 @@ const breakPoints = [
 ];
 
 const Columns = () => {
+  const navigate = useNavigate();
+
   const [column, setcolumn] = useState([]);
   useEffect(() => {
     getcolumn();
@@ -26,6 +29,13 @@ const Columns = () => {
     });
     // console.log("all-news", column.length);
   };
+  function fullpage(index, link) {
+    if (link) {
+      navigate("/video", { state: column[index] });
+    } else {
+      alert("You are not subscribed");
+    }
+  }
   return (
     <div id="columns">
       <h1 className="section-heading">Columns</h1>
@@ -42,7 +52,6 @@ const Columns = () => {
                 />
               );
             })}
-        
         </Carousel>
       </div>
     </div>

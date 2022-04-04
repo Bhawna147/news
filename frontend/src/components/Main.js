@@ -83,7 +83,7 @@ const Main = (props) => {
       <div className="top-heading">
         <h1 className="main-heading">Today's Top Stories</h1>
         <div className="top-heading-filler"></div>
-        {props.loggedIn == false ? (
+        {props.loggedIn === false ? (
           <div>
             <button className="sign-button" onClick={() => navigate("/signin")}>
               Sign In
