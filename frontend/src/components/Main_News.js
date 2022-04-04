@@ -18,8 +18,11 @@ const Main_News = (props) => {
         <div className="mainnews-news">
           <p>{truncate(props.item.head, props.characters)}</p>
         </div>
-
-        {/* </div> */}
+        {!props.paid && (
+          <div className="premium">
+            <img src="./rank.png" className="lock"></img>
+          </div>
+        )}
       </div>
     </>
   );

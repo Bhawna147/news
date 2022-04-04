@@ -36,19 +36,20 @@ const addNews = async (req, res) => {
 };
 
 const getNewsSection = async (req, res) => {
-  console.log(req.params["section"]);
+  // console.log(req.params["section"]);
   const news = await News.find({
     sections: { $all: [req.params["section"]] },
-    paid:
-      req.isAuthenticated() && req.user.subscirbed
-        ? { $in: [true, false] }
-        : false,
+    // paid:
+    //   req.isAuthenticated() && req.user.subscirbed
+    //     ? { $in: [true, false] }
+    //     : false,
   })
     .sort({
       _id: -1,
     })
     .limit(parseInt(req.params.count));
-  console.log(news);
+  // console.log(news);
+
   if (news) {
     return res.json({ err: false, success: true, data: news });
   } else {
@@ -63,22 +64,33 @@ const getNewsSection = async (req, res) => {
 const getAllNews = async (req, res) => {
   try {
     const news = await News.find({
-      paid:
-        req.isAuthenticated() && req.user.subscirbed
-          ? { $in: [true, false] }
-          : false,
+      // paid:
+      //   req.isAuthenticated() && req.user.subscirbed
+      //     ? { $in: [true, false] }
+      //     : false,
     })
       .sort({
         _id: -1,
       })
       .limit(parseInt(req.params.count));
-    console.log(news);
+    // console.log(news);
     if (news) {
-      return res.json({ err: false, success: true, data: news });
+      const newNews = news.map((data) => {
+        if (data.paid == true && req.isAuthenticated() && req.user.subscirbed) {
+          return data;
+        }
+        Object.keys(data).forEach(function (itm) {
+          if (itm != "heading" && itm != "_id" && itm != "thumbnail")
+            delete data[itm];
+        });
+        return data;
+      });
+      console.log(newNews);
+      return res.json({ err: false, success: true, data: newNews });
     } else {
       return res
         .status(404)
-        .json({ err: true, success: false, message: "Fail No news found" });
+        .json({ err: true, success: false, message: "Failed! No news found" });
     }
   } catch (err) {
     console.log(err);

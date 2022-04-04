@@ -77,10 +77,10 @@ body {
   font-size: 20px;
 }
 .main-right-container {
-  height: 55vh;
-  width: 45vw;
-  min-width: 550px;
-  max-height: 400px;
+  height: 50vh;
+  width: 40vw;
+  min-width: 510px;
+  max-height: 360px;
   background-position: center;
   background-size: cover;
   border: 10px solid #b1faff;
@@ -129,10 +129,10 @@ body {
     font-size: 30px;
   }
   .main-right-container {
-    height: 50vh;
-    width: 40vw;
-    min-width: 500px;
-    max-height: 330px;
+    height: 43vh;
+    width: 36vw;
+    min-width: 400px;
+    max-height: 300px;
   }
   .top-news-heading {
     width: 480px;
@@ -166,7 +166,7 @@ body {
     font-size: 27px;
   }
   .main-right-container {
-    width: 480px;
+    width: 400px;
   }
   .top-news-heading {
     width: 450px;
@@ -216,13 +216,13 @@ body {
   }
 }
 
-/* //////////////////main news CSS ////////////////*/
+/* //////////////////main news CSS ////////////// */
 @media screen and (max-width: 992px) {
   .main-right-container {
-    width: 70vw;
-    height: 50vh;
+    width: 67vw;
+    height: 54vh;
     min-width: 400px;
-    max-height: 450px;
+    max-height: 480px;
   }
   .top-news {
     width: fit-content;
@@ -242,12 +242,12 @@ body {
     width: 65vw;
   }
   .main-right-container {
-    height: 300px;
+    height: 280px;
   }
 }
 @media screen and (max-width: 700px) {
   .main-right-container {
-    width: 80vw;
+    width: 74vw;
   }
   .top-news-heading {
     font-size: 17px;
@@ -302,11 +302,31 @@ body {
   padding: 25px;
   margin: 20px;
   gap: 20px;
-
   flex-direction: column;
   min-height: 17rem;
+position: relative;
+/* border: 1px solid rgba(5, 227, 243, 0.1) ; */
 }
+.premium{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0px;
+  z-index: 8;
+ text-align: right;
+  background-color: rgb(255,255,255,0.3);
+  border: 1px solid gold;
+  
 
+}
+.lock{
+  /* display: none; */
+  height: 18%;
+margin-right: -12px;
+margin-top: -18px;
+
+}
 .white {
   background-color: White;
 }
@@ -317,6 +337,7 @@ body {
   background-size: cover;
   flex-basis: 60%;
   min-height: 150px;
+
 }
 
 .mainnews-news {
