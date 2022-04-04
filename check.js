@@ -65,7 +65,7 @@ let dat = [
 ];
 
 let newData = dat.map((data) => {
-  if (data.paid == true) {
+  if (data.paid === true) {
     Object.keys(data).forEach(function (itm) {
       if (itm != "heading" && itm != "_id" && itm != "thumbnail") {
         delete data[itm];

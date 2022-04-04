@@ -4,6 +4,7 @@ import "./interviews.css";
 import Carousel from "react-elastic-carousel";
 import Mainnews from "./Main_News";
 import Nav from "./Nav";
+import { useNavigate } from "react-router-dom";
 
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
@@ -13,10 +14,19 @@ const breakPoints = [
 ];
 
 const Columns = () => {
+  const navigate = useNavigate();
   const [column, setcolumn] = useState([]);
   useEffect(() => {
     getcolumn();
   }, []);
+
+  function fullpage(index, link) {
+    if (link) {
+      navigate("/video", { state: column[index] });
+    } else {
+      alert("You are not subscribed");
+    }
+  }
 
   const getcolumn = async () => {
     await Axios.get(

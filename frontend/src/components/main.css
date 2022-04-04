@@ -315,14 +315,14 @@ position: relative;
   left: 0px;
   z-index: 8;
  text-align: right;
-  background-color: rgb(255,255,255,0.3);
+
   border: 1px solid gold;
   
 
 }
 .lock{
   /* display: none; */
-  height: 18%;
+height: 18%;
 margin-right: -12px;
 margin-top: -18px;
 

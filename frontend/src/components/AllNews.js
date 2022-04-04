@@ -22,8 +22,6 @@ const AllNews = () => {
     // console.log("all-news", news.length);
   };
   function fullpage(index, link) {
-    // alert(index);
-
     if (link) {
       navigate("/video", { state: news[index] });
     } else {

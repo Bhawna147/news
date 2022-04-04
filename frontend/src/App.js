@@ -36,15 +36,17 @@ const App = () => {
         console.log(err);
       });
   }, []);
-  const isAuth = () => {
-    if (sessionStorage.getItem("LoggedIn") === "true") {
-      setLoggedIn(true);
-      return true;
-    } else {
-      setLoggedIn(false);
-      return false;
-    }
-  };
+
+  // for checking authentication
+  // const isAuth = () => {
+  //   if (sessionStorage.getItem("LoggedIn") === "true") {
+  //     setLoggedIn(true);
+  //     return true;
+  //   } else {
+  //     setLoggedIn(false);
+  //     return false;
+  //   }
+  // };
 
   return (
     <Router>
@@ -54,7 +56,7 @@ const App = () => {
           exaxct
           path="/signin"
           element={
-            loggedIn == true ? (
+            loggedIn === true ? (
               <Navigate replace to="/profile" />
             ) : (
               <Signin setLoggedIn={setLoggedIn} />
@@ -65,14 +67,14 @@ const App = () => {
           exact
           path="/signup"
           element={
-            loggedIn == true ? <Navigate replace to="/profile" /> : <Signup />
+            loggedIn === true ? <Navigate replace to="/profile" /> : <Signup />
           }
         ></Route>
         <Route
           exact
           path="/profile"
           element={
-            loggedIn == true ? (
+            loggedIn === true ? (
               <Profile setLoggedIn={setLoggedIn} />
             ) : (
               <Navigate replace to="/signin" />

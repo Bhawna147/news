@@ -25,11 +25,11 @@ const Profile = (props) => {
   const logout = () => {
     Axios.get(`${process.env.REACT_APP_SERVER_ADDRESS}/api/auth/logout`)
       .then((res) => {
-        if (res.data.success == true) {
+        if (res.data.success === true) {
           props.setLoggedIn(false);
           alert(res.data.message);
           navigate("/");
-        } else if (res.data.success == false && res.data.err == true) {
+        } else if (res.data.success === false && res.data.err === true) {
           alert(res.data.message);
         }
       })
@@ -55,17 +55,6 @@ const Profile = (props) => {
             </Link>
             <br />
 
-            {/* <Link to="/MyOrder">
-                    <button className="profile-button">
-                      <LocalMallIcon
-                        className="profile-icon"
-                        style={{ fontSize: 20 }}
-                      />{" "}
-                      <span>My Order</span>
-                    </button>
-                  </Link>
-                  <br /> */}
-
             <button className="profile-button" onClick={logout}>
               <ExitToAppIcon
                 className="profile-icon"
@@ -74,10 +63,7 @@ const Profile = (props) => {
               <span>Log Out</span>
             </button>
           </div>
-          {/* </Row> */}
         </Col>
-
-        {/* right/////////////////// */}
 
         <Col lg={8} md={8} className="profile-right">
           <h1>Hi {info.name}</h1>
