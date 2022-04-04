@@ -4,7 +4,7 @@ function truncate(str, chars) {
   return str.length > chars ? str.substring(0, chars) + "..." : str;
 }
 const Main_News = (props) => {
-  // console.log(props.item);
+  console.log(props.item.paid);
   return (
     <>
       <div className={`${props.classN} ${props.color}`}>
@@ -18,7 +18,7 @@ const Main_News = (props) => {
         <div className="mainnews-news">
           <p>{truncate(props.item.head, props.characters)}</p>
         </div>
-        {!props.paid && (
+        {props.item.paid && (
           <div className="premium">
             <img src="./rank.png" className="lock"></img>
           </div>
