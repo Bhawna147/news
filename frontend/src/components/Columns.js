@@ -45,11 +45,13 @@ const Columns = () => {
           {column.length > 0 &&
             column.map((item, index) => {
               return (
-                <Mainnews
-                  classN="main-news-container-vertical"
-                  item={{ head: item.heading, img: item.thumbnail }}
-                  characters={200}
-                />
+                <React.Fragment>
+                  <Mainnews
+                    classN="main-news-container-vertical"
+                    item={{ head: item.heading, img: item.thumbnail }}
+                    characters={200}
+                  />
+                </React.Fragment>
               );
             })}
         </Carousel>

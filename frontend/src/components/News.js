@@ -14,14 +14,10 @@ const News = () => {
     await Axios.get(
       `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/all/6`
     ).then((res) => {
-      // console.log(res.data.data);
       setNews([...res.data.data]);
     });
-    // console.log("all-news", news.length);
   };
   function fullpage(index, link) {
-    // alert(index);
-
     if (link) {
       navigate("/video", { state: news[index] });
     }

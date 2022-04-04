@@ -296,16 +296,17 @@ body {
 
 .main-news-container-vertical {
   background: rgba(8, 204, 217, 0.13);
-  width: 20rem;
+  width: 19rem;
+  max-width: 19rem;
   display: flex;
   border-radius: 7px;
-  padding: 25px;
+  padding: 20px;
   margin: 20px;
   gap: 20px;
   flex-direction: column;
   min-height: 17rem;
-position: relative;
-/* border: 1px solid rgba(5, 227, 243, 0.1) ; */
+ position: relative;
+
 }
 .premium{
   position: absolute;
@@ -315,14 +316,14 @@ position: relative;
   left: 0px;
   z-index: 8;
  text-align: right;
-
+  background-color: rgb(255,255,255,0.3);
   border: 1px solid gold;
   
 
 }
 .lock{
   /* display: none; */
-height: 18%;
+  height: 18%;
 margin-right: -12px;
 margin-top: -18px;
 

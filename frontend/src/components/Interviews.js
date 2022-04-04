@@ -36,11 +36,13 @@ const Interviews = () => {
         {interview.length > 0 &&
           interview.map((item, index) => {
             return (
-              <Mainnews
-                classN="main-news-container-vertical"
-                item={{ head: item.heading, img: item.thumbnail }}
-                characters={200}
-              />
+              <div onClick={() => fullpage(index, item.video_link)}>
+                <Mainnews
+                  classN="main-news-container-vertical"
+                  item={{ head: item.heading, img: item.thumbnail }}
+                  characters={200}
+                />
+              </div>
             );
           })}
       </div>

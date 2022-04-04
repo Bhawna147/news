@@ -39,6 +39,7 @@ const Interviews = () => {
           interview.map((item, index) => {
             return (
               <Mainnews
+                onClick={() => fullpage(index, item.video_link)}
                 classN="main-news-container-vertical"
                 item={{ head: item.heading, img: item.thumbnail }}
                 characters={200}
