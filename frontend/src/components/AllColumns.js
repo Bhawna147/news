@@ -3,8 +3,11 @@ import Axios from "axios";
 import "./interviews.css";
 import Carousel from "react-elastic-carousel";
 import Mainnews from "./Main_News";
+import Maincolumn from "./Main_column";
+
 import Nav from "./Nav";
 import { useNavigate } from "react-router-dom";
+import data from "./newss.js";
 
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
@@ -29,12 +32,13 @@ const Columns = () => {
   }
 
   const getcolumn = async () => {
-    await Axios.get(
-      `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/section/column/1000`
-    ).then((res) => {
-      // console.log(res.data.data);
-      setcolumn([...res.data.data]);
-    });
+    // await Axios.get(
+    //   `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/section/column/1000`
+    // ).then((res) => {
+    //   // console.log(res.data.data);
+    //   setcolumn([...res.data.data]);
+    // });
+    setcolumn([...data]);
     // console.log("all-news", column.length);
   };
   return (
@@ -47,16 +51,22 @@ const Columns = () => {
           {column.length > 0 &&
             column.map((item, index) => {
               return (
-                <div
-                  onClick={() => fullpage(index, item.video_link)}
-                  className="clickable"
-                >
-                  <Mainnews
-                    classN="main-news-container-vertical"
-                    item={{ head: item.heading, img: item.thumbnail }}
-                    characters={200}
-                  />
-                </div>
+                <React.Fragment id={index}>
+                  <div
+                    onClick={() => fullpage(index, item.video_link)}
+                    className="clickable"
+                  >
+                    <Maincolumn
+                      classN="main-column-container-vertical"
+                      item={{
+                        head: item.heading,
+                        img: item.thumbnail,
+                        paid: item.paid,
+                      }}
+                      characters={150}
+                    />
+                  </div>
+                </React.Fragment>
               );
             })}
         </Carousel>

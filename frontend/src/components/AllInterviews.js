@@ -41,7 +41,11 @@ const Interviews = () => {
               <Mainnews
                 onClick={() => fullpage(index, item.video_link)}
                 classN="main-news-container-vertical"
-                item={{ head: item.heading, img: item.thumbnail }}
+                item={{
+                  head: item.heading,
+                  img: item.thumbnail,
+                  paid: item.paid,
+                }}
                 characters={200}
               />
             );

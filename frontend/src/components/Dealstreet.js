@@ -39,7 +39,11 @@ const Dealstreet = () => {
               <div onClick={() => fullpage(index, item.video_link)}>
                 <Mainnews
                   classN="main-news-container-vertical"
-                  item={{ head: item.heading, img: item.thumbnail }}
+                  item={{
+                    head: item.heading,
+                    img: item.thumbnail,
+                    paid: item.paid,
+                  }}
                   characters={200}
                 />
               </div>
