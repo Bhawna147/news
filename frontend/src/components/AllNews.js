@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Mainnews from "./Main_News";
-import Axios from "axios";
+// import Axios from "axios";
 import Nav from "./Nav";
 import "./interviews.css";
 import { useNavigate } from "react-router-dom";
+import data from "./newss.js";
 
 const AllNews = () => {
   const navigate = useNavigate();
@@ -13,12 +14,12 @@ const AllNews = () => {
   }, []);
 
   const getnews = async () => {
-    await Axios.get(
-      `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/all/1000`
-    ).then((res) => {
-      // console.log(res.data.data);
-      setNews([...res.data.data]);
-    });
+    // await Axios.get(
+    //   `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/all/1000`
+    // ).then((res) => {
+
+    // });
+    setNews([...data]);
     // console.log("all-news", news.length);
   };
   function fullpage(index, link) {

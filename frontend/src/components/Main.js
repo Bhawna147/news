@@ -5,8 +5,10 @@ import Col from "react-bootstrap/Col";
 import Carousel from "react-material-ui-carousel";
 // import { Paper, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import data from "./newss.js";
+
 import "./main.css";
-import Axios from "axios";
+// import Axios from "axios";
 function truncate(str, length) {
   return str.length > 10 ? str.substring(0, length) + "..." : str;
 }
@@ -68,12 +70,12 @@ const Main = (props) => {
   }, []);
 
   const Latestnews = async () => {
-    await Axios.get(
-      `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/all/8`
-    ).then((res) => {
-      // console.log(res.data.data);
-      setLatest([...res.data.data]);
-    });
+    // await Axios.get(
+    //   `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/all/8`
+    // ).then((res) => {
+
+    // });
+    setLatest([...data]);
     // console.log("latest", latest);
   };
   return (
@@ -120,7 +122,7 @@ const Main = (props) => {
               latest.slice(0, 4).map((item, index) => {
                 return (
                   <div className="latest-news-item" key={index}>
-                    <p>{truncate(item.desc, 150)}</p>
+                    <p>{truncate(item.heading, 150)}</p>
                   </div>
                 );
               })}
