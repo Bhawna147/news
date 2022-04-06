@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Carousel from "react-elastic-carousel";
-import Mainnews from "./Main_News";
 import Maincolumn from "./Main_column";
 
 import Axios from "axios";
 import "./interviews.css";
 import { useNavigate } from "react-router-dom";
-import data from "./newss.js";
+// import data from "./newss.js";
 
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
@@ -24,13 +23,13 @@ const Columns = () => {
   }, []);
 
   const getcolumn = async () => {
-    // await Axios.get(
-    //   `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/section/column/20`
-    // ).then((res) => {
+    await Axios.get(
+      `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/section/column/20`
+    ).then((res) => {
 
-    //   setcolumn([...res.data.data]);
-    // });
-    setcolumn([...data]);
+      setcolumn([...res.data.data]);
+    });
+    // setcolumn([...data]);
 
     // console.log("all-news", column.length);
   };
