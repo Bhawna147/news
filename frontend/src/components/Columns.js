@@ -49,6 +49,7 @@ const Columns = () => {
                   classN="main-news-container-vertical"
                   item={{ head: item.heading, img: item.thumbnail }}
                   characters={200}
+                  onClick={() => fullpage(index, item.video_link)}
                 />
               );
             })}

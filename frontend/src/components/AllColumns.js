@@ -47,11 +47,16 @@ const Columns = () => {
           {column.length > 0 &&
             column.map((item, index) => {
               return (
-                <Mainnews
-                  classN="main-news-container-vertical"
-                  item={{ head: item.heading, img: item.thumbnail }}
-                  characters={200}
-                />
+                <div
+                  onClick={() => fullpage(index, item.video_link)}
+                  className="clickable"
+                >
+                  <Mainnews
+                    classN="main-news-container-vertical"
+                    item={{ head: item.heading, img: item.thumbnail }}
+                    characters={200}
+                  />
+                </div>
               );
             })}
         </Carousel>
