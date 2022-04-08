@@ -1,5 +1,6 @@
 import { NavLink } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
+// import BannerTop from "./BannerTop";
 import "./nav.css";
 import {
   BrowserRouter as Router,
@@ -28,6 +29,8 @@ function Nav() {
   }, []);
 
   return (
+    <>
+    {/* <BannerTop/> */}
     <div className="nav-hub">
       <nav className="navbar" onClick={(e) => e.stopPropagation()}>
         <div className="nav-container">
@@ -150,6 +153,7 @@ function Nav() {
         </div>
       </nav>
     </div>
+    </>
   );
 }
 export default Nav;

@@ -188,6 +188,9 @@ body {
   .top-heading button {
     font-size: 18px;
   }
+  .top-heading{
+    margin-top: 8%;
+  }
 
   .top-heading button {
     height: 35px;
