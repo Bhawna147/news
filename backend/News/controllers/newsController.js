@@ -45,7 +45,7 @@ const getNewsSection = async (req, res) => {
     //     : false,
   })
     .sort({
-      _id: -1,
+      _id: 1,
     })
     .limit(parseInt(req.params.count));
   // console.log(news);

@@ -126,7 +126,8 @@ body {
     max-height: 300px;
   }
   .top-news-heading {
-    width: 480px;
+    min-width: 400px;
+    width: 400px;
     font-size: 18px;
   }
   .top-news {
@@ -160,7 +161,7 @@ body {
     width: 400px;
   }
   .top-news-heading {
-    width: 450px;
+    width: 400px;
     font-size: 17px;
   }
   .top-news {
@@ -269,8 +270,8 @@ body {
     margin-right: auto;
   }
   .top-news-heading {
-    font-size: 14px;
-    width: 310px;
+    font-size: 15px;
+    width: 300px;
     min-width: 0px;
   }
 }

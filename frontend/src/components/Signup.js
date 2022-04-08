@@ -128,6 +128,7 @@ export default function Signup() {
 
                 <Grid item xs={12} sm={6}>
                   <Select
+                    required
                     id="gender"
                     value={gender}
                     name="gender"
