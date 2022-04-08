@@ -9,7 +9,7 @@ import ReactPlayer from "react-player";
 
 const Video = () => {
   const { state } = useLocation();
-  console.log(state);
+  // console.log(state);
 
   return (
     <>
