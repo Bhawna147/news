@@ -35,7 +35,10 @@ const Main = (props) => {
 
   function Item(props) {
     return (
-      <div className="top-news">
+      <div
+        className="top-news"
+        onClick={() => channelVideo(props.item.video_link)}
+      >
         <h4 className="top-news-heading">
           {truncate(props.item.heading, 150)}
         </h4>
@@ -47,6 +50,13 @@ const Main = (props) => {
         ></div>
       </div>
     );
+  }
+
+  function channelVideo(link) {
+    // if (link) {
+    //   window.location.href = { link };
+    // }
+    alert(link);
   }
 
   useEffect(() => {
