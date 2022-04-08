@@ -51,7 +51,7 @@ export default function Signup() {
       password: formData.get("password"),
     };
 
-    console.log(data);
+    // console.log(data);
     Axios.post(`${process.env.REACT_APP_SERVER_ADDRESS}/api/auth/register`, {
       ...data,
     })

@@ -16,7 +16,7 @@ const Main = (props) => {
   const [latest, setLatest] = useState([]);
   const [channel, setLatestchannel] = useState([]);
 
-  console.log(props);
+  // console.log(props);
   // const [loggedIn, setLoggedIn] = useState(false);
 
   function Example(props) {

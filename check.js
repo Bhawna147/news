@@ -75,4 +75,4 @@ let newData = dat.map((data) => {
   return data;
 });
 
-console.log(newData);
+// console.log(newData);

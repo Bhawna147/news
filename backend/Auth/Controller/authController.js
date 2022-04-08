@@ -6,7 +6,7 @@ require("../validation/passportConfig")(passport);
 dotenv.config();
 
 const register = async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   User.findOne({ email: req.body.email }, async (err, data) => {
     if (err) {
       return res.send({
@@ -46,7 +46,7 @@ const register = async (req, res) => {
 };
 
 const login = async (req, res, next) => {
-  console.log(req.body);
+  // console.log(req.body);
   passport.authenticate("local", (err, user, info) => {
     if (err) throw err;
     if (!user)

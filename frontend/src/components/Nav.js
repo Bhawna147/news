@@ -24,7 +24,7 @@ function Nav() {
         setLoggedIn(res.data.isAuth);
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
   }, []);
 
