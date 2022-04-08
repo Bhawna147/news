@@ -29,9 +29,7 @@ const Columns = () => {
 
       setcolumn([...res.data.data]);
     });
-    // setcolumn([...data]);
 
-    // console.log("all-news", column.length);
   };
   function fullpage(index, link) {
     if (link) {

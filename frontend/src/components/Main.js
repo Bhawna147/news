@@ -13,28 +13,12 @@ function truncate(str, length) {
 const Main = (props) => {
   const navigate = useNavigate();
   const [latest, setLatest] = useState([]);
+  const [channel, setLatestchannel] = useState([]);
+
   console.log(props);
   // const [loggedIn, setLoggedIn] = useState(false);
 
   function Example(props) {
-    const channel = [
-      {
-        img: "https://c.ndtvimg.com/2021-12/mt9avqvg_chennai-airport-_625x300_01_December_21.jpg",
-        head: "Hello 1 Slide",
-      },
-      {
-        img: "https://images.unsplash.com/photo-1640092593995-54d71076b961?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-        head: "Hello 2 Slide",
-      },
-      {
-        img: "https://images.unsplash.com/photo-1633113089631-6456cccaadad?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwyNnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-        head: "Hello 3 Slide",
-      },
-      {
-        img: "https://images.unsplash.com/photo-1639921769902-158d63270f34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyOHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-        head: "Hello 4 Slide ",
-      },
-    ];
     return (
       <Carousel
         indicators={false}
@@ -43,20 +27,20 @@ const Main = (props) => {
         duration={800}
         interval={3000}
       >
-        {channel.map((item, i) => (
-          <Item key={i} item={item} />
-        ))}
+        {channel.length > 0 &&
+          channel.map((item, i) => <Item key={i} item={item} />)}
       </Carousel>
     );
   }
+
   function Item(props) {
     return (
       <div className="top-news">
-        <h4 className="top-news-heading">{props.item.head}</h4>
+        <h4 className="top-news-heading">{props.item.heading}</h4>
         <div
           className=" main-right-container"
           style={{
-            backgroundImage: `url("${props.item.img}")`,
+            backgroundImage: `url("${props.item.thumbnail}")`,
           }}
         ></div>
       </div>
@@ -65,16 +49,23 @@ const Main = (props) => {
 
   useEffect(() => {
     Latestnews();
+    Latestchannel();
   }, []);
 
   const Latestnews = async () => {
     await Axios.get(
       `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/all/8`
     ).then((res) => {
-      // console.log(res.data.data);
       setLatest([...res.data.data]);
     });
-    // console.log("latest", latest);
+  };
+  const Latestchannel = async () => {
+    await Axios.get(
+      `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/section/channel/10`
+    ).then((res) => {
+      setLatestchannel([...res.data.data]);
+
+    });
   };
   return (
     <>
