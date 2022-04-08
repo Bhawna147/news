@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import "./main.css";
 import Axios from "axios";
 function truncate(str, length) {
-  return str.length > 10 ? str.substring(0, length) + "..." : str;
+  return str.length > length ? str.substring(0, length) + "..." : str;
 }
 const Main = (props) => {
   const navigate = useNavigate();
@@ -36,7 +36,9 @@ const Main = (props) => {
   function Item(props) {
     return (
       <div className="top-news">
-        <h4 className="top-news-heading">{props.item.heading}</h4>
+        <h4 className="top-news-heading">
+          {truncate(props.item.heading, 150)}
+        </h4>
         <div
           className=" main-right-container"
           style={{
@@ -64,7 +66,6 @@ const Main = (props) => {
       `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/section/channel/10`
     ).then((res) => {
       setLatestchannel([...res.data.data]);
-
     });
   };
   return (
