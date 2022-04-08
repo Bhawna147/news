@@ -20,7 +20,7 @@ const Video = () => {
           <div className="player-wrapper">
             <ReactPlayer
               className="react-player"
-              url="https://www.youtube.com/watch?v=5oLSGK4eA9M"
+              url={state.video_link}
               width="100%"
               height="100%"
               controls={true}
@@ -29,20 +29,7 @@ const Video = () => {
         </div>
 
         <div className="video-content">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-            numquam nulla porro fugiat vitae incidunt rem sint nam, facilis at
-            facere, tenetur voluptatum hic repudiandae ab quasi ipsum doloremque
-            recusandae exercitationem autem aut unde assumenda praesentium. Quo
-            tenetur quam dolorum alias voluptatem similique adipisci totam
-            voluptate libero natus hic officia reiciendis neque architecto dolor
-            quibusdam, ratione doloremque esse ex sapiente sequi ut quasi.
-            Veritatis dicta saepe asperiores cupiditate consectetur minima
-            repellat fugiat eveniet, incidunt quibusdam officia sequi at quidem
-            voluptates tenetur temporibus totam facilis quisquam in dignissimos
-            placeat cum vel quasi vero? Quasi quidem, voluptatum a mollitia
-            magnam omnis aperiam vero sunt perferendis, natus id, accusantium
-          </p>
+          <p>{state.full_story}</p>
         </div>
       </div>
     </>
