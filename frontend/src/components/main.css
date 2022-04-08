@@ -180,6 +180,9 @@ body {
 }
 
 @media screen and (max-width: 992px) {
+  .top-news {
+    margin-top: 15px;
+  }
   .latest-news {
     display: none;
   }
