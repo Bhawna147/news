@@ -5,6 +5,7 @@ import Col from "react-bootstrap/Col";
 import Carousel from "react-material-ui-carousel";
 // import { Paper, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import BannerTop from "./BannerTop";
 import "./main.css";
 import Axios from "axios";
 function truncate(str, length) {
@@ -80,6 +81,7 @@ const Main = (props) => {
   };
   return (
     <>
+      <BannerTop/>
       <Nav />
 
       <div className="top-heading">

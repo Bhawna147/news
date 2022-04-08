@@ -184,6 +184,15 @@
   }
 }
 
+
+@media screen and (max-width: 992px) {
+
+  .navbar {
+    top: 57px;
+  }
+
+}
+
 @media screen and (max-width: 650px) {
   /* .nav-item {
     margin: 0 10% 0 0;
