@@ -8,8 +8,7 @@ const passport = require("passport");
 const app = express();
 const dotenv = require("dotenv");
 dotenv.config();
-console.clear();
-
+console.log(process.env.MONGO_DB_URI);
 const authRouter = require("./Auth/Routes/auth");
 const newsRouter = require("./News/routes/news");
 
@@ -49,7 +48,7 @@ mongoose.connect(
 app.use("/api/auth", authRouter);
 app.use("/api/news", newsRouter);
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8000;
 
 app.listen(port, () => {
   console.log(`Server is up and running on port ${port}`);
