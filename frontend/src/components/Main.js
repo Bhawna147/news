@@ -11,6 +11,7 @@ import Axios from "axios";
 function truncate(str, length) {
   return str.length > length ? str.substring(0, length) + "..." : str;
 }
+
 const Main = (props) => {
   const navigate = useNavigate();
   const [latest, setLatest] = useState([]);
@@ -18,6 +19,14 @@ const Main = (props) => {
 
   // console.log(props);
   // const [loggedIn, setLoggedIn] = useState(false);
+
+  function fullpage(index, link) {
+    if (link) {
+      navigate("/video", { state: latest[index] });
+    } else {
+      alert("not subscribed");
+    }
+  }
 
   function Example(props) {
     return (
@@ -81,7 +90,7 @@ const Main = (props) => {
   };
   return (
     <>
-      <BannerTop/>
+      <BannerTop />
       <Nav />
 
       <div className="top-heading">
@@ -123,7 +132,11 @@ const Main = (props) => {
             {latest.length > 0 &&
               latest.slice(0, 4).map((item, index) => {
                 return (
-                  <div className="latest-news-item" key={index}>
+                  <div
+                    className="latest-news-item"
+                    key={index}
+                    onClick={() => fullpage(index, item.video_link)}
+                  >
                     <p>{truncate(item.desc, 150)}</p>
                   </div>
                 );
