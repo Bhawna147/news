@@ -6,6 +6,12 @@
   margin-top: 10%;
 }
 
+/* to lock scroll when nav opens */
+.locked {
+  height: 100vh;
+  overflow: hidden;
+}
+
 .nav-logo-main {
   background-image: url("./Logo2.png");
   height: 66px;
@@ -156,10 +162,8 @@
     border: none;
   }
   .nav-links {
-    /* background-color: black; */
-    padding: 1.5rem;
-    width: 100%;
     display: table;
+    margin: auto;
   }
 
   .nav-icon {
@@ -175,12 +179,11 @@
 
   .nav-item {
     line-height: 20px;
-    margin: 0 20% 0 10%;
-    /* background-color: red; */
-    /* margin-right: 3rem; */
-    /* margin: 0 3rem 0 3rem; */
-    /* margin-bottom: 2rem; */
-    /* background-color: yellow; */
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    margin-top: 20px;
+
   }
 }
 
