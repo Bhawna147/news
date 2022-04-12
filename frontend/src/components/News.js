@@ -13,9 +13,7 @@ const News = () => {
   }, []);
 
   const getnews = async () => {
-    await Axios.get(
-      `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/all/6`
-    ).then((res) => {
+    await Axios.get(`/api/news/all/6`).then((res) => {
       setNews([...res.data.data]);
     });
     // setNews([...data]);

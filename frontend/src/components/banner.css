@@ -1,49 +1,27 @@
-
-.banner-left {
-    
-    position: fixed;
-    border-radius: 25px 0 0 25px;
-    top: 193px;
-    height: 60%;
-    right: 0;
-    width: 9%;
-    z-index: 999;
-    box-shadow: 0 2px 24px 0 rgb(0 0 0 / 15%);
-    background-color: #b4bfc0 !important;
-    padding: 25px;
-    font-size: 25px;
-
-}
-
-
-
 .banner-top {
-    
-    display: none;
     position: fixed;
-    top: 0;
+    bottom: 0;
     height: 50px;
     left: 0;
     width: 100%;
     z-index: 999;
     box-shadow: 0 2px 24px 0 rgb(0 0 0 / 15%);
-    background-color: #b4bfc0 !important;
+    background-color: #d5fcff !important;
     animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
     padding: 10px;
-
+    white-space: nowrap;
+    -webkit-animation: rightThenLeft 4s linear;
+    text-align: center;
 }
 
-
-
-
-@media screen and (max-width: 992px) {
-
-    .banner-left {
-        display: none;
+@-webkit-keyframes rightThenLeft {
+    0% {
+        left: 0%;
     }
-
-    .banner-top{
-        display: inline;
+    50% {
+        left: 100%;
     }
-
-  }
+    100% {
+        left: 0%;
+    }
+}

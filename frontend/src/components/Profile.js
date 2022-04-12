@@ -16,14 +16,12 @@ const Profile = (props) => {
   const [info, setInfo] = useState({ name: "", email: "", mobile: "" });
 
   useEffect(() => {
-    Axios.get(`${process.env.REACT_APP_SERVER_ADDRESS}/api/auth/isAuth`).then(
-      (res) => {
-        setInfo(res.data.info);
-      }
-    );
+    Axios.get(`/api/auth/isAuth`).then((res) => {
+      setInfo(res.data.info);
+    });
   }, []);
   const logout = () => {
-    Axios.get(`${process.env.REACT_APP_SERVER_ADDRESS}/api/auth/logout`)
+    Axios.get(`/api/auth/logout`)
       .then((res) => {
         if (res.data.success === true) {
           props.setLoggedIn(false);

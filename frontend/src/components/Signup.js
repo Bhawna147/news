@@ -30,11 +30,18 @@ export default function Signup() {
   document.title = "SignUp";
 
   const [gender, setGender] = React.useState("Male");
+  const [isPhoneValid, setIsPhoneValid] = React.useState(false);
   //   const History = useHistory();
   const genderChangeHandler = (event) => {
     setGender(event.target.value);
   };
-
+  const phoneChangeHandler = (e) => {
+    if (e.target.value.length !== 10 || !/^[0-9]+$/.test(e.target.value)) {
+      setIsPhoneValid(true);
+    } else {
+      setIsPhoneValid(false);
+    }
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
@@ -52,7 +59,7 @@ export default function Signup() {
     };
 
     // console.log(data);
-    Axios.post(`${process.env.REACT_APP_SERVER_ADDRESS}/api/auth/register`, {
+    Axios.post(`/api/auth/register`, {
       ...data,
     })
       .then((res) => {
@@ -108,12 +115,7 @@ export default function Signup() {
             <Typography component="h1" variant="h5">
               Sign up
             </Typography>
-            <Box
-              component="form"
-              noValidate
-              onSubmit={handleSubmit}
-              sx={{ mt: 3 }}
-            >
+            <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={12}>
                   <TextField
@@ -187,6 +189,8 @@ export default function Signup() {
                     required
                     fullWidth
                     name="phone"
+                    error={isPhoneValid}
+                    onChange={phoneChangeHandler}
                     label="Phone Number"
                     type="phone"
                     id="phone"

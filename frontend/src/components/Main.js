@@ -66,22 +66,18 @@ const Main = (props) => {
   }, []);
 
   const Latestnews = async () => {
-    await Axios.get(
-      `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/all/8`
-    ).then((res) => {
+    await Axios.get(`/api/news/all/8`).then((res) => {
       setLatest([...res.data.data]);
     });
   };
   const Latestchannel = async () => {
-    await Axios.get(
-      `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/section/channel/10`
-    ).then((res) => {
+    await Axios.get(`/api/news/section/channel/10`).then((res) => {
       setLatestchannel([...res.data.data]);
     });
   };
   return (
     <>
-      <BannerTop/>
+      <BannerTop />
       <Nav />
 
       <div className="top-heading">

@@ -29,7 +29,7 @@ export default function Signin(props) {
   //   const History = useHistory();
   const HandleSubmit = (event) => {
     axios
-      .post(`${process.env.REACT_APP_SERVER_ADDRESS}/api/auth/login`, {
+      .post(`/api/auth/login`, {
         email: email,
         password: password,
       })

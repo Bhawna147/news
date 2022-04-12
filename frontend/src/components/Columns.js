@@ -23,13 +23,9 @@ const Columns = () => {
   }, []);
 
   const getcolumn = async () => {
-    await Axios.get(
-      `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/section/column/20`
-    ).then((res) => {
-
+    await Axios.get(`/api/news/section/column/20`).then((res) => {
       setcolumn([...res.data.data]);
     });
-
   };
   function fullpage(index, link) {
     if (link) {

@@ -31,10 +31,7 @@ const Columns = () => {
   }
 
   const getcolumn = async () => {
-    await Axios.get(
-      `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/section/column/1000`
-    ).then((res) => {
-  
+    await Axios.get(`/api/news/section/column/1000`).then((res) => {
       setcolumn([...res.data.data]);
     });
     // setcolumn([...data]);

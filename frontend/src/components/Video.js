@@ -15,8 +15,8 @@ const Video = () => {
     <>
       <div className="video-container">
         <Nav />
-
         <div className="video-display">
+          <h1>{state.head}</h1>
           <div className="player-wrapper">
             <ReactPlayer
               className="react-player"

@@ -27,7 +27,7 @@ import Axios from "axios";
 const App = () => {
   const [loggedIn, setLoggedIn] = React.useState(false);
   React.useEffect(() => {
-    Axios.get(`${process.env.REACT_APP_SERVER_ADDRESS}/api/auth/isAuth`, {})
+    Axios.get(`/api/auth/isAuth`, {})
       .then((res) => {
         sessionStorage.setItem("LoggedIn", res.data.isAuth);
         setLoggedIn(res.data.isAuth);

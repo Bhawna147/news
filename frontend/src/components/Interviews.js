@@ -13,9 +13,7 @@ const Interviews = () => {
   }, []);
 
   const getinterview = async () => {
-    await Axios.get(
-      `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/section/interview/6`
-    ).then((res) => {
+    await Axios.get(`/api/news/section/interview/6`).then((res) => {
       // console.log(res.data.data);
       setinterview([...res.data.data]);
     });

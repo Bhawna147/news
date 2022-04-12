@@ -7,11 +7,13 @@ const bcrypt = require("bcryptjs");
 const passport = require("passport");
 const app = express();
 const dotenv = require("dotenv");
+const port = process.env.PORT || 8000;
+const path = require("path");
 dotenv.config();
 console.log(process.env.MONGO_DB_URI);
 const authRouter = require("./Auth/Routes/auth");
 const newsRouter = require("./News/routes/news");
-
+app.use(express.static(path.join(__dirname, "build")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(
@@ -48,7 +50,9 @@ mongoose.connect(
 app.use("/api/auth", authRouter);
 app.use("/api/news", newsRouter);
 
-const port = process.env.PORT || 8000;
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
 
 app.listen(port, () => {
   console.log(`Server is up and running on port ${port}`);

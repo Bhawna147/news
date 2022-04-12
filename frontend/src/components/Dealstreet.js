@@ -13,9 +13,7 @@ const Dealstreet = () => {
   }, []);
 
   const getdealStreet = async () => {
-    await Axios.get(
-      `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/section/deal_street/6`
-    ).then((res) => {
+    await Axios.get(`/api/news/section/deal_street/6`).then((res) => {
       // console.log(res.data.data);
       setdealStreet([...res.data.data]);
     });
