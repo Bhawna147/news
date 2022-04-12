@@ -73,15 +73,15 @@ body {
 .top-news-heading {
   color: rgb(73, 73, 73);
   margin-bottom: 3vh;
-  width: 40vw;
-  min-width: 500px;
+  width: 43vw;
+  min-width: 510px;
   font-size: 20px;
 }
 .main-right-container {
-  height: 50vh;
-  width: 40vw;
-  min-width: 510px;
-  max-height: 360px;
+  height: 55vh;
+  width: 45vw;
+  min-width: 530px;
+  max-height: 380px;
   background-position: center;
   background-size: cover;
   border: 10px solid #b1faff;
@@ -122,14 +122,14 @@ body {
     font-size: 30px;
   }
   .main-right-container {
-    height: 43vh;
-    width: 36vw;
-    min-width: 400px;
-    max-height: 300px;
+    height: 47vh;
+    width: 40vw;
+    min-width: 450px;
+    max-height: 330px;
   }
   .top-news-heading {
-    min-width: 400px;
-    width: 400px;
+    min-width: 430px;
+    width: 430px;
     font-size: 18px;
   }
   .top-news {
@@ -160,7 +160,7 @@ body {
     font-size: 27px;
   }
   .main-right-container {
-    width: 400px;
+    width: 440px;
   }
   .top-news-heading {
     width: 400px;
