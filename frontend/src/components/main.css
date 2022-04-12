@@ -180,6 +180,11 @@ body {
 }
 
 @media screen and (max-width: 992px) {
+  
+  .main{
+    padding: 1rem;
+  }
+
   .top-news {
     margin-top: 15px;
   }
@@ -193,7 +198,7 @@ body {
     font-size: 18px;
   }
   .top-heading{
-    margin-top: 8%;
+    margin-top: 5%;
   }
 
   .top-heading button {

@@ -185,13 +185,6 @@
 }
 
 
-@media screen and (max-width: 992px) {
-
-  .navbar {
-    top: 50px;
-  }
-
-}
 
 @media screen and (max-width: 650px) {
   /* .nav-item {
