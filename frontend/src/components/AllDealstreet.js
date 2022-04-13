@@ -15,6 +15,7 @@ const breakPoints = [
 ];
 
 const Dealstreet = () => {
+  document.title = "Dealstreets";
   const navigate = useNavigate();
 
   const [dealStreet, setdealStreet] = useState([]);

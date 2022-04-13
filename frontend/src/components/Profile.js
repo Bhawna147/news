@@ -11,6 +11,7 @@ import { Row, Col } from "react-bootstrap";
 Axios.defaults.withCredentials = true;
 
 const Profile = (props) => {
+  document.title = "Profile";
   const navigate = useNavigate();
 
   const [info, setInfo] = useState({ name: "", email: "", mobile: "" });

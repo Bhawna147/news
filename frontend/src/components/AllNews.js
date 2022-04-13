@@ -6,6 +6,7 @@ import "./interviews.css";
 import { useNavigate } from "react-router-dom";
 
 const AllNews = () => {
+  document.title = "News";
   const navigate = useNavigate();
   const [news, setNews] = useState([]);
   useEffect(() => {

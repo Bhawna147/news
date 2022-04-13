@@ -14,6 +14,7 @@ const breakPoints = [
 ];
 
 const Interviews = () => {
+  document.title = "Interviews";
   const navigate = useNavigate();
 
   const [interview, setinterview] = useState([]);
