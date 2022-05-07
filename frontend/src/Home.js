@@ -9,6 +9,7 @@ import News from "./components/News";
 // import BannerTop from "./components/BannerTop"
 
 const Home = (props) => {
+  document.title = "Academy-Hub";
   return (
     <>
       <Main loggedIn={props.loggedIn} />

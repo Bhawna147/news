@@ -16,6 +16,7 @@ const breakPoints = [
 ];
 
 const Columns = () => {
+  document.title = "Columns";
   const navigate = useNavigate();
   const [column, setcolumn] = useState([]);
   useEffect(() => {
