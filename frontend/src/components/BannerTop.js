@@ -5,9 +5,8 @@ import "./banner.css";
 const BannerTop = () => {
   return (
     <div className='banner-top'>
-      <div id="scroll-text" >
-      This is scrolling text Banner
-      </div>
+      <marquee behavior="scroll" direction="left">Your scrolling text goes here Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, est.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, placeat. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt omnis deleniti neque fugit maiores! Ipsum, doloremque dolorem. Sed, aspernatur aut.</marquee>
       </div>
   )
 }
