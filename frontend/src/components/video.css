@@ -4,21 +4,12 @@
 
 .video-display{
   margin: 0 auto;
-  max-width: 1000px;
+  max-width: 960px;
   /* padding: 0px 1.0875rem 1.45rem; */
   padding-top: 0;
-  margin-top: 20px;
 
 }
-.video-head{
-  max-width: 80%;
-  display: block;
-  margin: auto;
-  margin-top: 50px;
-}
-.video-head h5{
-  font-weight: bold;
-}
+
 .player-wrapper {
   position: relative;
   padding-top: 56.25% ;
@@ -36,27 +27,11 @@
 .video-content {
   padding: 0px 30px 20px 30px;
   text-align: justify;
-
-
 }
 
+/* .videoTag {
+  height: 100%;
+  width: 100%;
+  z-index: 20;
+} */
 
-@media (max-width: 1000px) {
-
-.video-head {
-  max-width: 100%;
-  padding: 0px 30px 20px 30px;
-  font-size: 1rem;
-}
-}
-@media (max-width: 600px) {
-
-  .video-head {
-    font-size: 0.85rem;
-  }
-  .video-display {
-
-    margin-top: 0px;
-  
-  }
-}

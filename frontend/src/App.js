@@ -20,46 +20,47 @@ import AllColumns from "./components/AllColumns";
 import Footer from "./components/Footer";
 import Profile from "./components/Profile";
 import Video from "./components/Video";
-
 import Home from "./Home";
-import Axios from "axios";
-
+import useAxiosPrivate from "./hooks/useAxiosPrivate";
+import useAuth from "./hooks/useAuth";
+import useRefreshToken from "./hooks/useRefreshToken";
 const App = () => {
-  const [loggedIn, setLoggedIn] = React.useState(false);
+  const { auth, setAuth } = useAuth();
+  const Axios = useAxiosPrivate();
+  const refresh = useRefreshToken();
   React.useEffect(() => {
-    Axios.get(`${process.env.REACT_APP_SERVER_ADDRESS}/api/auth/isAuth`, {})
-      .then((res) => {
-        sessionStorage.setItem("LoggedIn", res.data.isAuth);
-        setLoggedIn(res.data.isAuth);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    (async () => {
+      if (sessionStorage.getItem("refresh_token")) {
+        refresh();
+        Axios.get(`/api/customer/me`)
+          .then((res) => {
+            setAuth((prev) => {
+              return { ...prev, user: res.data };
+            });
+          })
+          .catch((err) => {
+            console.log(err.response.data);
+          });
+      }
+    })();
   }, []);
-
-  // for checking authentication
-  // const isAuth = () => {
-  //   if (sessionStorage.getItem("LoggedIn") === "true") {
-  //     setLoggedIn(true);
-  //     return true;
-  //   } else {
-  //     setLoggedIn(false);
-  //     return false;
-  //   }
-  // };
 
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<Home loggedIn={loggedIn} />}></Route>
+        <Route
+          exact
+          path="/"
+          element={<Home loggedIn={auth.user !== undefined} />}
+        ></Route>
         <Route
           exaxct
           path="/signin"
           element={
-            loggedIn === true ? (
+            auth.user !== undefined ? (
               <Navigate replace to="/profile" />
             ) : (
-              <Signin setLoggedIn={setLoggedIn} />
+              <Signin />
             )
           }
         ></Route>
@@ -67,15 +68,19 @@ const App = () => {
           exact
           path="/signup"
           element={
-            loggedIn === true ? <Navigate replace to="/profile" /> : <Signup />
+            auth.user !== undefined ? (
+              <Navigate replace to="/profile" />
+            ) : (
+              <Signup />
+            )
           }
         ></Route>
         <Route
           exact
           path="/profile"
           element={
-            loggedIn === true ? (
-              <Profile setLoggedIn={setLoggedIn} />
+            auth.user !== undefined ? (
+              <Profile />
             ) : (
               <Navigate replace to="/signin" />
             )

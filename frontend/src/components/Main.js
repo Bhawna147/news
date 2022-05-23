@@ -7,12 +7,12 @@ import Carousel from "react-material-ui-carousel";
 import { useNavigate } from "react-router-dom";
 import BannerTop from "./BannerTop";
 import "./main.css";
-import Axios from "axios";
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
 function truncate(str, length) {
   return str.length > length ? str.substring(0, length) + "..." : str;
 }
-
 const Main = (props) => {
+  const Axios = useAxiosPrivate();
   const navigate = useNavigate();
   const [latest, setLatest] = useState([]);
   const [channel, setLatestchannel] = useState([]);
@@ -20,26 +20,19 @@ const Main = (props) => {
   // console.log(props);
   // const [loggedIn, setLoggedIn] = useState(false);
 
-  function fullpage(index, link) {
-    if (link) {
-      navigate("/video", { state: latest[index] });
-    } else {
-      alert("not subscribed");
-    }
-  }
-
   function Example(props) {
     return (
-      <Carousel
-        indicators={false}
-        navButtonsAlwaysInvisible={true}
-        animation={"fade"}
-        duration={800}
-        interval={3000}
-      >
-        {channel.length > 0 &&
-          channel.map((item, i) => <Item key={i} item={item} />)}
-      </Carousel>
+      <></>
+      // <Carousel
+      //   indicators={false}
+      //   navButtonsAlwaysInvisible={true}
+      //   animation={"fade"}
+      //   duration={800}
+      //   interval={3000}
+      // >
+      //   {channel.length > 0 &&
+      //     channel.map((item, i) => <Item key={i} item={item} />)}
+      // </Carousel>
     );
   }
 
@@ -75,17 +68,13 @@ const Main = (props) => {
   }, []);
 
   const Latestnews = async () => {
-    await Axios.get(
-      `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/all/8`
-    ).then((res) => {
-      setLatest([...res.data.data]);
+    await Axios.get(`/api/news?offset=0&limit=4`).then((res) => {
+      setLatest([...res.data.results]);
     });
   };
   const Latestchannel = async () => {
-    await Axios.get(
-      `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/section/channel/10`
-    ).then((res) => {
-      setLatestchannel([...res.data.data]);
+    await Axios.get(`/api/news?offset=0&limit=4`).then((res) => {
+      setLatestchannel([...res.data.results]);
     });
   };
   return (
@@ -132,11 +121,7 @@ const Main = (props) => {
             {latest.length > 0 &&
               latest.slice(0, 4).map((item, index) => {
                 return (
-                  <div
-                    className="latest-news-item"
-                    key={index}
-                    onClick={() => fullpage(index, item.video_link)}
-                  >
+                  <div className="latest-news-item" key={index}>
                     <p>{truncate(item.desc, 150)}</p>
                   </div>
                 );
