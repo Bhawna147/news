@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Axios from "axios";
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import "./interviews.css";
 import Carousel from "react-elastic-carousel";
 import Maincolumn from "./Main_column";
@@ -17,6 +17,7 @@ const breakPoints = [
 
 const Columns = () => {
   const navigate = useNavigate();
+  const Axios = useAxiosPrivate();
   const [column, setcolumn] = useState([]);
   useEffect(() => {
     getcolumn();
@@ -31,11 +32,11 @@ const Columns = () => {
   }
 
   const getcolumn = async () => {
-    await Axios.get(`/api/news/section/column/1000`).then((res) => {
-      setcolumn([...res.data.data]);
-    });
-    // setcolumn([...data]);
-    // console.log("all-news", column.length);
+    await Axios.get(`/api/news/?offset=0&limit=10&section=column`).then(
+      (res) => {
+        setcolumn([...res.data.results]);
+      }
+    );
   };
   return (
     <div>

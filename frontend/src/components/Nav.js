@@ -1,31 +1,18 @@
-import { NavLink } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
-// import BannerTop from "./BannerTop";
 import "./nav.css";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useHistory,
-} from "react-router-dom";
-import Axios from "axios";
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
+import useAuth from "../hooks/useAuth";
+import { Link } from "react-router-dom";
 function Nav() {
+  const Axios = useAxiosPrivate();
   const [click, setClick] = React.useState(false);
-
+  const { auth } = useAuth();
   const handleClick = () => setClick(!click);
   const Close = () => setClick(false);
   const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
-    Axios.get(`/api/auth/isAuth`, {})
-      .then((res) => {
-        sessionStorage.setItem("LoggedIn", res.data.isAuth);
-        setLoggedIn(res.data.isAuth);
-      })
-      .catch((err) => {
-        // console.log(err);
-      });
+    setLoggedIn(auth?.user !== undefined);
   }, []);
 
   return (

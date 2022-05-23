@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Mainnews from "./Main_News";
-import Axios from "axios";
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import "./interviews.css";
 import { useNavigate } from "react-router-dom";
 // import data from "./newss.js";
 
 const News = () => {
+  const Axios = useAxiosPrivate();
   const navigate = useNavigate();
   const [news, setNews] = useState([]);
   useEffect(() => {
@@ -13,8 +14,8 @@ const News = () => {
   }, []);
 
   const getnews = async () => {
-    await Axios.get(`/api/news/all/6`).then((res) => {
-      setNews([...res.data.data]);
+    await Axios.get(`/api/news?section=news&offset=0&limit=10`).then((res) => {
+      setNews([...res.data.results]);
     });
     // setNews([...data]);
   };

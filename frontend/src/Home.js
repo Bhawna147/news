@@ -6,8 +6,10 @@ import Interviews from "./components/Interviews";
 import Main from "./components/Main";
 import News from "./components/News";
 import BannerTop from "./components/BannerTop";
-
+import useAxiosPrivate from "./hooks/useAxiosPrivate";
 const Home = (props) => {
+  const Axios = useAxiosPrivate();
+
   return (
     <>
       <Main loggedIn={props.loggedIn} />

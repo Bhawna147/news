@@ -3,8 +3,6 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-// import FormControlLabel from "@mui/material/FormControlLabel";
-// import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import HomeIcon from "@mui/icons-material/Home";
@@ -12,29 +10,22 @@ import Box from "@mui/material/Box";
 import Paper from "@material-ui/core/Paper";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
-// import Container from "@mui/material/Container";
-// import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
-import Axios from "axios";
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import "./sign.css";
 import { useNavigate } from "react-router-dom";
-
-Axios.defaults.withCredentials = true;
+import { FormControl } from "react-bootstrap";
+import { InputLabel } from "@material-ui/core";
 
 const theme = createTheme();
 
 export default function Signup() {
+  const Axios = useAxiosPrivate();
   const navigate = useNavigate();
   document.title = "SignUp";
-
-  const [gender, setGender] = React.useState("Male");
   const [isPhoneValid, setIsPhoneValid] = React.useState(false);
-  //   const History = useHistory();
-  const genderChangeHandler = (event) => {
-    setGender(event.target.value);
-  };
   const phoneChangeHandler = (e) => {
     if (e.target.value.length !== 10 || !/^[0-9]+$/.test(e.target.value)) {
       setIsPhoneValid(true);
@@ -48,30 +39,28 @@ export default function Signup() {
     // eslint-disable-next-line no-console
 
     const data = {
-      name: formData.get("name"),
-      gender: formData.get("gender"),
-      country: formData.get("country"),
-      state: formData.get("state"),
-      city: formData.get("city"),
-      email: formData.get("email"),
-      phone: formData.get("phone"),
+      username: formData.get("username"),
       password: formData.get("password"),
+      email: formData.get("email"),
+      first_name: formData.get("first_name"),
+      last_name: formData.get("last_name"),
+      customer: {
+        gender: formData.get("gender"),
+        phone: formData.get("phone"),
+        country: formData.get("country"),
+        state: formData.get("state"),
+        city: formData.get("city"),
+      },
     };
-
-    // console.log(data);
-    Axios.post(`/api/auth/register`, {
+    console.log(data);
+    Axios.post(`/auth/register/`, {
       ...data,
     })
       .then((res) => {
-        console.log(res);
-        if (res.data.success === true) {
-          // sessionStorage.setItem("LoggedIn", true);
-          navigate("/signin");
-        } else if (res.data.success === false && res.data.err === false) {
-          alert(res.data.message);
-        }
+        navigate("/signin");
       })
       .catch((err) => {
+        console.log(err.response.data);
         alert("Sorry some error was caused");
         navigate("/signup");
       });
@@ -117,30 +106,37 @@ export default function Signup() {
             </Typography>
             <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>
               <Grid container spacing={2}>
-                <Grid item xs={12} sm={12}>
+                <Grid item xs={12} sm={6}>
                   <TextField
-                    name="name"
+                    name="first_name"
                     required
                     fullWidth
-                    id="name"
-                    label="Name"
+                    id="first_name"
+                    label="First Name"
                     autoFocus
                   />
                 </Grid>
-
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    name="last_name"
+                    required
+                    fullWidth
+                    id="last_name"
+                    label="Last Name"
+                  />
+                </Grid>
                 <Grid item xs={12} sm={6}>
                   <Select
                     required
                     id="gender"
-                    value={gender}
+                    label="Gender"
                     name="gender"
                     fullWidth
-                    onChange={genderChangeHandler}
                   >
-                    <MenuItem id="male" value={"Male"}>
+                    <MenuItem id="male" value={"M"}>
                       Male
                     </MenuItem>
-                    <MenuItem id="female" value={"Female"}>
+                    <MenuItem id="female" value={"F"}>
                       Female
                     </MenuItem>
                   </Select>
@@ -173,7 +169,16 @@ export default function Signup() {
                     name="city"
                   />
                 </Grid>
-
+                <Grid item xs={12} sm={12}>
+                  <TextField
+                    name="username"
+                    required
+                    fullWidth
+                    id="username"
+                    label="Username"
+                    autoFocus
+                  />
+                </Grid>
                 <Grid item xs={12}>
                   <TextField
                     required

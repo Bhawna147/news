@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Mainnews from "./Main_News";
-import Axios from "axios";
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import Nav from "./Nav";
 import "./interviews.css";
 import { useNavigate } from "react-router-dom";
 
 const AllNews = () => {
+  const Axios = useAxiosPrivate();
   const navigate = useNavigate();
   const [news, setNews] = useState([]);
   useEffect(() => {
@@ -13,17 +14,20 @@ const AllNews = () => {
   }, []);
 
   const getnews = async () => {
-    await Axios.get(`/api/news/all/1000`).then((res) => {
-      // console.log(res.data.data);
-      setNews([...res.data.data]);
-    });
+    await Axios.get(`/api/news?offset=0&limit=10&section=news`)
+      .then((res) => {
+        setNews([...res.data.results]);
+      })
+      .catch((err) => {
+        console.log(err.config, err);
+      });
     // console.log("all-news", news.length);
   };
   function fullpage(index, link) {
     if (link) {
       navigate("/video", { state: news[index] });
     } else {
-      alert("You are not subscribed");
+      alert("You are not subscribed..");
     }
   }
   return (

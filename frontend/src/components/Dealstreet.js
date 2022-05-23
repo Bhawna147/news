@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Mainnews from "./Main_News";
-import Axios from "axios";
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import "./interviews.css";
 import { useNavigate } from "react-router-dom";
 
 const Dealstreet = () => {
+  const Axios = useAxiosPrivate();
   const navigate = useNavigate();
 
   const [dealStreet, setdealStreet] = useState([]);
@@ -13,10 +14,12 @@ const Dealstreet = () => {
   }, []);
 
   const getdealStreet = async () => {
-    await Axios.get(`/api/news/section/deal_street/6`).then((res) => {
-      // console.log(res.data.data);
-      setdealStreet([...res.data.data]);
-    });
+    await Axios.get(`/api/news/?section=deal_street&offset=0&limit=10`).then(
+      (res) => {
+        // console.log(res.data.data);
+        setdealStreet([...res.data.results]);
+      }
+    );
     // console.log("all-news", dealStreet.length);
   };
   function fullpage(index, link) {

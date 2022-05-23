@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Carousel from "react-elastic-carousel";
 import Maincolumn from "./Main_column";
 
-import Axios from "axios";
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import "./interviews.css";
 import { useNavigate } from "react-router-dom";
 // import data from "./newss.js";
@@ -15,6 +15,7 @@ const breakPoints = [
 ];
 
 const Columns = () => {
+  const Axios = useAxiosPrivate();
   const navigate = useNavigate();
 
   const [column, setcolumn] = useState([]);
@@ -23,9 +24,11 @@ const Columns = () => {
   }, []);
 
   const getcolumn = async () => {
-    await Axios.get(`/api/news/section/column/20`).then((res) => {
-      setcolumn([...res.data.data]);
-    });
+    await Axios.get(`/api/news?section=column&offset=0&limit=10`).then(
+      (res) => {
+        setcolumn([...res.data.results]);
+      }
+    );
   };
   function fullpage(index, link) {
     if (link) {

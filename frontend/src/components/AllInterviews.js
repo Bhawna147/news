@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import Axios from "axios";
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import Mainnews from "./Main_News";
 import "./interviews.css";
 import Nav from "./Nav";
 import { useNavigate } from "react-router-dom";
 
 const Interviews = () => {
+  const Axios = useAxiosPrivate();
   const navigate = useNavigate();
 
   const [interview, setinterview] = useState([]);
@@ -14,10 +15,12 @@ const Interviews = () => {
   }, []);
 
   const getinterview = async () => {
-    await Axios.get(`/api/news/section/interview/1000`).then((res) => {
-      // console.log(res.data.data);
-      setinterview([...res.data.data]);
-    });
+    await Axios.get(`/api/news/?offset=0&limit=10&section=interviews`).then(
+      (res) => {
+        // console.log(res.data.data);
+        setinterview([...res.data.results]);
+      }
+    );
     // console.log("all-news", interview.length);
   };
   function fullpage(index, link) {
