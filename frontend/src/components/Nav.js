@@ -1,33 +1,22 @@
 import React, { useEffect, useState } from "react";
-// import BannerTop from "./BannerTop";
 import "./nav.css";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useHistory,
-} from "react-router-dom";
-import Axios from "axios";
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
+import useAuth from "../hooks/useAuth";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import LoginIcon from "@mui/icons-material/Login";
+import { Button } from "@mui/material";
 function Nav() {
+  const navigate = useNavigate();
+  const Axios = useAxiosPrivate();
   const [click, setClick] = React.useState(false);
-
-  const handleClick = () => {
-    setClick(!click);
-    document.body.classList.toggle("locked");
-  };
+  const { auth } = useAuth();
+  const handleClick = () => setClick(!click);
   const Close = () => setClick(false);
   const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
-    Axios.get(`${process.env.REACT_APP_SERVER_ADDRESS}/api/auth/isAuth`, {})
-      .then((res) => {
-        sessionStorage.setItem("LoggedIn", res.data.isAuth);
-        setLoggedIn(res.data.isAuth);
-      })
-      .catch((err) => {
-        // console.log(err);
-      });
+    setLoggedIn(auth?.user !== undefined);
   }, []);
 
   return (
@@ -102,48 +91,6 @@ function Nav() {
                   Interviews
                 </Link>
               </li>
-              {loggedIn ? (
-                <li className="nav-item nav-button-active">
-                  <Link
-                    exact
-                    to="/profile"
-                    activeClassName="active"
-                    className="nav-links"
-                    onClick={click ? handleClick : null}
-                    style={{ color: "white" }}
-                  >
-                    Profile
-                  </Link>
-                </li>
-              ) : (
-                <>
-                  {" "}
-                  <li className="nav-item nav-button-active">
-                    <Link
-                      exact
-                      to="/signin"
-                      activeClassName="active"
-                      className="nav-links"
-                      onClick={click ? handleClick : null}
-                      style={{ color: "white" }}
-                    >
-                      Sign In
-                    </Link>
-                  </li>
-                  <li className="nav-item nav-button-active">
-                    <Link
-                      exact
-                      to="/signup"
-                      activeClassName="active"
-                      className="nav-links"
-                      onClick={click ? handleClick : null}
-                      style={{ color: "white" }}
-                    >
-                      Sign Up
-                    </Link>
-                  </li>
-                </>
-              )}
             </ul>
 
             <div className="nav-icon" onClick={handleClick}>

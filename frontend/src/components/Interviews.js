@@ -1,19 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Axios from "axios";
-
-import Carousel from "react-elastic-carousel";
-import Maincolumn from "./Main_column";
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
+import Mainnews from "./Main_News";
 import "./interviews.css";
 import { useNavigate } from "react-router-dom";
 
-const breakPoints = [
-  { width: 1, itemsToShow: 1 },
-  { width: 550, itemsToShow: 2 },
-  { width: 768, itemsToShow: 3 },
-  { width: 1200, itemsToShow: 4 },
-];
-
 const Interviews = () => {
+  const Axios = useAxiosPrivate();
   const navigate = useNavigate();
 
   const [interview, setinterview] = useState([]);
@@ -22,12 +14,12 @@ const Interviews = () => {
   }, []);
 
   const getinterview = async () => {
-    await Axios.get(
-      `${process.env.REACT_APP_SERVER_ADDRESS}/api/news/section/interview/6`
-    ).then((res) => {
-      // console.log(res.data.data);
-      setinterview([...res.data.data]);
-    });
+    await Axios.get(`/api/news?section=interviews&offset=0&limit=10`).then(
+      (res) => {
+        // console.log(res.data.data);
+        setinterview([...res.data.results]);
+      }
+    );
     // console.log("all-news", interview.length);
   };
   function fullpage(index, link) {
@@ -38,35 +30,28 @@ const Interviews = () => {
     }
   }
   return (
-    <div id="columns" className="interviewBox">
-      <h1 className="section-heading">Interview</h1>
+    <>
+      <h1 className="section-heading">Interviews</h1>
 
-      <div className="columns">
-        <Carousel breakPoints={breakPoints}>
-          {interview.length > 0 &&
-            interview.map((item, index) => {
-              return (
-                <React.Fragment id={index}>
-                  <div
-                    onClick={() => fullpage(index, item.video_link)}
-                    className="clickable"
-                  >
-                    <Maincolumn
-                      classN="main-column-container-vertical"
-                      item={{
-                        head: item.heading,
-                        img: item.thumbnail,
-                        paid: item.paid,
-                      }}
-                      characters={150}
-                    />
-                  </div>
-                </React.Fragment>
-              );
-            })}
-        </Carousel>
+      <div className="section-container">
+        {interview.length > 0 &&
+          interview.map((item, index) => {
+            return (
+              <div onClick={() => fullpage(index, item.video_link)}>
+                <Mainnews
+                  classN="main-news-container-vertical"
+                  item={{
+                    head: item.heading,
+                    img: item.thumbnail,
+                    paid: item.paid,
+                  }}
+                  characters={200}
+                />
+              </div>
+            );
+          })}
       </div>
-    </div>
+    </>
   );
 };
 

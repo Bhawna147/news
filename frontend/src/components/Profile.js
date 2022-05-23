@@ -1,42 +1,31 @@
 import React, { useEffect, useState } from "react";
-import Axios from "axios";
-// import { useState } from "react";
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import { Link, useNavigate } from "react-router-dom";
 import "./profile.css";
 import HomeIcon from "@mui/icons-material/Home";
-// import LocalMallIcon from "@mui/icons-material/LocalMall";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { Row, Col } from "react-bootstrap";
-
-Axios.defaults.withCredentials = true;
-
+import useAuth from "../hooks/useAuth";
 const Profile = (props) => {
-  document.title = "Profile";
+  const Axios = useAxiosPrivate();
   const navigate = useNavigate();
-
-  const [info, setInfo] = useState({ name: "", email: "", mobile: "" });
+  const { setAuth } = useAuth();
+  const [info, setInfo] = useState({ name: "", email: "", phone: "" });
 
   useEffect(() => {
-    Axios.get(`${process.env.REACT_APP_SERVER_ADDRESS}/api/auth/isAuth`).then(
-      (res) => {
-        setInfo(res.data.info);
-      }
-    );
-  }, []);
-  const logout = () => {
-    Axios.get(`${process.env.REACT_APP_SERVER_ADDRESS}/api/auth/logout`)
+    Axios.get(`/api/customer/me/`)
       .then((res) => {
-        if (res.data.success === true) {
-          props.setLoggedIn(false);
-          alert(res.data.message);
-          navigate("/");
-        } else if (res.data.success === false && res.data.err === true) {
-          alert(res.data.message);
-        }
+        setInfo(res.data);
       })
       .catch((err) => {
-        alert("OOPS something went wrong");
+        console.log(err.config);
+        console.log(err.response.data);
       });
+  }, []);
+  const logout = () => {
+    setAuth({});
+    sessionStorage.removeItem("refresh_token");
+    navigate("/");
   };
 
   return (
@@ -67,10 +56,10 @@ const Profile = (props) => {
         </Col>
 
         <Col lg={8} md={8} className="profile-right">
-          <h1>Hi {info.name}</h1>
+          <h1>Hi {info?.name}</h1>
           <div className="profile-data">
-            <p className="line">Email -{info.email}</p>
-            <p className="line">Mobile -{info.phone}</p>
+            <p className="line">Email - {info?.email}</p>
+            <p className="line">Mobile - {info?.phone}</p>
           </div>
         </Col>
       </Row>

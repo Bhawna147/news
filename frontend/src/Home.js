@@ -5,20 +5,20 @@ import Footer from "./components/Footer";
 import Interviews from "./components/Interviews";
 import Main from "./components/Main";
 import News from "./components/News";
-// import Banner from "./components/Banner";
-// import BannerTop from "./components/BannerTop"
-
+import BannerTop from "./components/BannerTop";
+import useAxiosPrivate from "./hooks/useAxiosPrivate";
 const Home = (props) => {
-  document.title = "Academy-Hub";
+  const Axios = useAxiosPrivate();
+
   return (
     <>
       <Main loggedIn={props.loggedIn} />
-      {/* <Banner/> */}
       <Columns />
       <News />
       <Dealstreet />
       <Interviews />
       <Footer />
+      <BannerTop />
     </>
   );
 };

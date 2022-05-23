@@ -6,22 +6,17 @@ import Nav from "./Nav";
 // import { useNavigate } from "react-router-dom";
 import "./video.css";
 import ReactPlayer from "react-player";
-function truncate(str, chars) {
-  return str.length > chars ? str.substring(0, chars) + "..." : str;
-}
+
 const Video = () => {
   const { state } = useLocation();
-  console.log(state);
+  // console.log(state);
 
   return (
     <>
       <div className="video-container">
         <Nav />
-        <div className="video-head">
-          <h5>{state.heading} and also that my name is ayush saxena </h5>
-        </div>
-
         <div className="video-display">
+          <h1>{state.head}</h1>
           <div className="player-wrapper">
             <ReactPlayer
               className="react-player"

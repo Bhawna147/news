@@ -11,42 +11,47 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
+import useAuth from "../hooks/useAuth";
 // import { createNotification } from "../Notification";
 import "./sign.css";
-
-axios.defaults.withCredentials = true;
 
 const theme = createTheme();
 
 export default function Signin(props) {
+  const { setAuth } = useAuth();
+  const Axios = useAxiosPrivate();
   const navigate = useNavigate();
   document.title = "SignIn";
 
-  const [email, setEmail] = React.useState("");
+  const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
   //   const History = useHistory();
   const HandleSubmit = (event) => {
-    axios
-      .post(`${process.env.REACT_APP_SERVER_ADDRESS}/api/auth/login`, {
-        email: email,
-        password: password,
-      })
-      .then((res) => {
-        // console.log(res.data);
-        if (res.data.success === true) {
-          props.setLoggedIn(true);
-          navigate("/");
-        } else if (res.data.success === false && res.data.err == false) {
-          alert(res.data.message);
-          setEmail("");
-          setPassword("");
-          //   createNotification(res.data.err, "error", 3000);
-        }
+    Axios.post(`/auth/jwt/create`, {
+      username: username,
+      password: password,
+    })
+      .then((resauth) => {
+        sessionStorage.setItem("refresh_token", resauth.data.refresh);
+        Axios.get("/api/customer/me", {
+          headers: { Authorization: `JWT ${resauth.data.access}` },
+        })
+          .then((res) => {
+            console.log(res.data);
+            setAuth((prev) => {
+              return { ...prev, user: res.data, access: resauth.data.access };
+            });
+          })
+          .catch((err) => {
+            console.log(err?.config);
+            console.log(err.response);
+          });
       })
       .catch((err) => {
-        console.log(err);
+        setUsername("");
+        setPassword("");
+        console.log(err.response.data);
       });
   };
 
@@ -91,15 +96,15 @@ export default function Signin(props) {
                 margin="normal"
                 required
                 fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
+                id="username"
+                label="Username"
+                name="username"
+                autoComplete="username"
                 onChange={(e) => {
-                  setEmail(e.target.value);
+                  setUsername(e.target.value);
                 }}
                 autoFocus
-                value={email}
+                value={username}
               />
               <TextField
                 margin="normal"
